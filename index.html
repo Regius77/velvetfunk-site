@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Velvet Funk | Neo soul and R&amp;B</title>
+<meta name="description" content="Velvet Funk, neo soul and R&amp;B from Detroit. Can't Fake The Fire is out now.">
+<link rel="canonical" href="https://velvetfunk.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://velvetfunk.com/">
+<meta property="og:title" content="Velvet Funk">
+<meta property="og:description" content="Can't Fake The Fire is out now.">
+<meta property="og:image" content="https://velvetfunk.com/assets/og-cftf-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f0b0a">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preload" href="assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/street-portrait.webp" media="(max-aspect-ratio: 4/5)">
+<link rel="preload" as="image" href="assets/img/street-1600.webp" imagesrcset="assets/img/street-1600.webp 1600w, assets/img/street-2400.webp 2400w" imagesizes="100vw" media="(min-aspect-ratio: 4.0001/5)">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "Velvet Funk",
+  "url": "https://velvetfunk.com/",
+  "genre": ["Neo soul", "R&B", "Funk"],
+  "sameAs": [
+    "https://open.spotify.com/artist/1oCgOGxyjqDexacJlm9Scu",
+    "https://music.apple.com/us/artist/velvet-funk/1751124918",
+    "https://www.youtube.com/@VelvetFunk",
+    "https://www.instagram.com/velvet.funk/",
+    "https://www.tiktok.com/@velvet.funk"
+  ]
+}
+</script>
+<style>
+@font-face{font-family:"Bricolage";src:url(assets/fonts/bricolage.woff2) format("woff2");font-weight:200 800;font-stretch:75% 100%;font-display:swap}
+@font-face{font-family:"Fraunces VF";src:url(assets/fonts/fraunces.woff2) format("woff2");font-weight:600;font-display:swap}
+
+:root{
+  --ink:#0f0b0a;
+  --ink-2:#1a1311;
+  --ivory:#f6f4f1;
+  --ivory-2:rgba(246,244,241,.74);
+  --line:rgba(246,244,241,.16);
+  --ember:#c65a48;
+  --gutter:clamp(16px,4.4vw,56px);
+  --row:"Bricolage",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--ivory);font-family:var(--row);font-variation-settings:"opsz" 14;font-weight:450;font-size:16px;line-height:1.5;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* type system: row = Bricolage condensed caps, key = Fraunces soft lowercase */
+.row{font-family:var(--row);font-weight:800;font-stretch:75%;font-variation-settings:"opsz" 96;text-transform:uppercase;letter-spacing:.005em;line-height:.86}
+.key{font-family:"Fraunces VF",Georgia,serif;font-weight:600;text-transform:none;letter-spacing:-.01em;line-height:.8}
+.label{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-2)}
+
+/* ---------- the walk: street, then the basement wall ---------- */
+.walk{position:relative;height:260svh}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:#05070a}
+.stage picture,.stage img.plate{position:absolute;inset:0;width:100%;height:100%}
+.plate{object-fit:cover;object-position:0% 50%;will-change:transform;transform-origin:var(--ox,11%) 84%}
+.wall{visibility:hidden}
+.wall .plate{transform-origin:15% 25%}
+.stage.inside .street{visibility:hidden}
+.stage.inside .wall{visibility:visible}
+.wall::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(to bottom,rgba(15,11,10,0),var(--ink))}
+.lyric{position:absolute;right:var(--gutter);top:42%;max-width:min(46vw,620px);margin:0;font-size:clamp(40px,6.4vw,104px);color:var(--ivory);text-align:right;visibility:hidden;z-index:2}
+.lyric .key{display:inline-block;font-size:1.5em;color:#fbe9e2}
+.stage.inside .lyric{visibility:visible}
+
+.hero{position:absolute;top:0;left:0;right:0;height:100svh;z-index:3;padding:calc(env(safe-area-inset-top) + 22px) var(--gutter) calc(env(safe-area-inset-bottom) + 28px);display:flex;flex-direction:column;justify-content:space-between;pointer-events:none;overflow:hidden}
+.hero > *{pointer-events:auto}
+.logo{width:clamp(150px,19vw,280px);height:auto;align-self:flex-end}
+.release{max-width:940px;position:relative}
+.release::before{content:"";position:absolute;inset:-60px calc(-1 * var(--gutter)) -40px calc(-1 * var(--gutter));background:radial-gradient(ellipse at 20% 70%,rgba(5,6,9,.62),rgba(5,6,9,0) 68%);z-index:-1;pointer-events:none}
+.release h1{margin:10px 0 22px;font-size:clamp(58px,9.4vw,142px)}
+.release h1 .key{display:block;font-size:1.62em;margin-top:.02em;color:#fbe9e2}
+
+.listen{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;font-stretch:88%;font-size:17px;letter-spacing:.06em;text-transform:uppercase;background:var(--ivory);color:var(--ink);padding:15px 30px;border-radius:999px;min-height:48px;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+.btn:hover{background:#fff}
+.btn[aria-expanded=true]{background:var(--ember);color:var(--ivory)}
+.more{appearance:none;border:0;background:none;color:var(--ivory);font:inherit;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(246,244,241,.5);padding:12px 6px;min-height:44px;cursor:pointer}
+.more[aria-expanded=true]{text-decoration-color:var(--ivory)}
+.platforms{display:none;flex-wrap:wrap;gap:8px;margin:12px 0 0;padding:0;list-style:none}
+.platforms.open{display:flex}
+.platforms a{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border:1px solid rgba(246,244,241,.5);border-radius:999px;text-decoration:none;font-size:15px;font-weight:600;background:rgba(10,8,8,.55)}
+.platforms a:hover{border-color:var(--ivory);background:rgba(10,8,8,.8)}
+
+/* ---------- blocks ---------- */
+main{position:relative;z-index:1;background:var(--ink)}
+section.block{padding:clamp(64px,10vw,140px) var(--gutter) 0;max-width:1320px;margin:0 auto}
+.block h2{margin:0 0 40px;font-size:clamp(44px,7vw,96px)}
+.block h2 .key{font-size:1.45em}
+
+.crew{display:grid;grid-template-columns:repeat(2,1fr);max-width:900px;gap:clamp(10px,1.6vw,22px)}
+.crew figure{margin:0}
+.crew .ph{aspect-ratio:4/5;overflow:hidden;background:var(--ink-2);border-radius:2px}
+.crew img{width:100%;height:100%;object-fit:cover}
+.crew figcaption{padding-top:12px}
+.crew .name{display:block;font-size:clamp(26px,3vw,40px)}
+.ai{display:block;margin-top:6px;font-size:13px;color:var(--ivory-2)}
+.after{margin:28px 0 0;font-size:clamp(18px,1.7vw,22px);color:var(--ivory-2);max-width:34ch}
+
+.drops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.6vw,22px)}
+.drops li{min-width:0}
+.cover{aspect-ratio:1;background:var(--ink-2);overflow:hidden;border-radius:2px}
+.cover img{width:100%;height:100%;object-fit:cover}
+.cover.blank{display:flex;align-items:flex-end;padding:14px;border:1px solid var(--line);background:#120e0d}
+.cover.blank span{font-size:clamp(34px,4vw,56px);color:var(--ivory-2)}
+.drops h3{margin:12px 0 2px;font-size:clamp(22px,2.2vw,30px)}
+.when{font-size:14px;color:var(--ivory-2)}
+.when b{color:var(--ember);font-weight:600}
+.links{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:14px}
+.links a{text-underline-offset:3px;text-decoration-color:rgba(246,244,241,.4)}
+.links a:hover{text-decoration-color:var(--ivory)}
+
+.elsewhere{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.elsewhere li{border-bottom:1px solid var(--line)}
+.elsewhere a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;text-decoration:none}
+.elsewhere .row{font-size:clamp(34px,5vw,64px)}
+.elsewhere .handle{font-size:14px;color:var(--ivory-2);text-align:right}
+.elsewhere a:hover .row{color:#fbe9e2}
+
+.mail h2{margin-bottom:clamp(48px,5vw,64px)}
+.mail form{display:flex;gap:10px;flex-wrap:wrap;max-width:560px}
+.mail input{flex:1 1 220px;min-height:52px;padding:0 18px;font:inherit;font-size:16px;color:var(--ivory);background:transparent;border:1px solid rgba(246,244,241,.35);border-radius:999px}
+.mail .btn[disabled]{opacity:.55;cursor:not-allowed}
+.mail .note{margin:12px 0 0;font-size:14px;color:var(--ivory-2)}
+
+footer{margin-top:clamp(80px,12vw,160px);padding:40px var(--gutter) calc(110px + env(safe-area-inset-bottom));border-top:1px solid var(--line);max-width:1320px;margin-left:auto;margin-right:auto}
+footer img{width:150px;height:auto;margin-bottom:22px}
+footer p{margin:0 0 10px;font-size:14px;color:var(--ivory-2);max-width:64ch}
+footer .credit{color:var(--ivory)}
+
+/* ---------- fixed bar ---------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;height:calc(60px + env(safe-area-inset-bottom));padding:8px var(--gutter) calc(8px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;background:rgba(15,11,10,.94);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .22s ease-out}
+.bar.on{transform:none}
+.bar img{width:44px;height:44px;border-radius:2px}
+.bar .t{flex:1;min-width:0;font-size:15px;font-weight:600;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .t small{display:block;font-size:12px;font-weight:450;color:var(--ivory-2)}
+.bar .btn{padding:10px 20px;min-height:44px;font-size:15px}
+.bar .platforms{position:absolute;right:var(--gutter);bottom:calc(100% + 8px);margin:0;flex-direction:column;align-items:stretch;background:var(--ink);border:1px solid var(--line);border-radius:14px;padding:8px}
+.bar .platforms a{border:0;background:transparent}
+
+@media (max-width:900px){
+  .drops{grid-template-columns:repeat(2,1fr)}
+  .drops li:first-child{grid-column:1 / -1}
+  .drops li:first-child .cover{aspect-ratio:auto}
+}
+@media (max-width:640px){
+  .lyric{left:var(--gutter);right:var(--gutter);top:auto;bottom:22%;max-width:none;text-align:left;font-size:clamp(40px,13vw,64px)}
+  .elsewhere .handle{display:none}
+}
+@media (max-aspect-ratio:4/5){
+  .stage .street .plate{--ox:38%}
+}
+@media (prefers-reduced-motion:reduce){
+  .plate{transform:none!important}
+  .bar{transition:none}
+}
+</style>
+</head>
+<body>
+
+<section class="walk" aria-label="Velvet Funk">
+  <div class="stage" id="stage">
+    <picture class="street">
+      <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/street-portrait.webp">
+      <img class="plate" id="street" src="assets/img/street-1600.webp" srcset="assets/img/street-1600.webp 1600w, assets/img/street-2400.webp 2400w" sizes="100vw" alt="A Detroit street at night. Brick houses, a covered car, a burgundy Cadillac at the curb, red light on the sidewalk." fetchpriority="high">
+    </picture>
+    <picture class="wall">
+      <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/wall-portrait.webp">
+      <img class="plate" id="wall" src="assets/img/wall-2000.webp" alt="A painted brick wall in a basement, one red bulb on a wire." loading="eager" decoding="async">
+    </picture>
+    <p class="lyric row" aria-hidden="true">You can lie<br>with lips,<br>but not with <span class="key">hips</span></p>
+  </div>
+
+  <header class="hero">
+    <img class="logo" src="assets/img/logo-ivory.webp" width="800" height="174" alt="Velvet Funk">
+    <div class="release">
+      <span class="label">Out now</span>
+      <h1 class="row">Can't fake the <span class="key">fire</span></h1>
+      <div class="listen">
+        <a class="btn" href="go/ytm/">Listen on YouTube Music</a>
+        <button class="more" type="button" aria-expanded="false" aria-controls="p-hero" data-listen>More platforms</button>
+      </div>
+      <ul class="platforms" id="p-hero">
+        <li><a href="go/ytm/">YouTube Music</a></li>
+        <li><a href="go/lyric/">Lyric video</a></li>
+        <li><a href="go/apple/">Apple Music</a></li>
+        <li><a href="go/spotify/">Spotify</a></li>
+      </ul>
+    </div>
+  </header>
+</section>
+
+<main>
+  <section class="block" id="collective" aria-labelledby="h-collective">
+    <h2 class="row" id="h-collective">The <span class="key">collective</span></h2>
+    <div class="crew">
+      <figure>
+        <div class="ph"><img src="assets/img/mike.webp" width="800" height="800" alt="Mike on a cream rotary phone, pink round glasses, gold hoop." loading="lazy" decoding="async"></div>
+        <figcaption><span class="name row">Mike</span><span class="ai">AI-generated character</span></figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img src="assets/img/june-theo.webp" width="800" height="997" alt="June and Theo from behind, sitting on the hood of a burgundy Cadillac in a field at night, her mules on the gravel." loading="lazy" decoding="async"></div>
+        <figcaption><span class="name row">June &amp; Theo</span><span class="ai">AI-generated characters</span></figcaption>
+      </figure>
+    </div>
+    <p class="after">Detroit. More of us downstairs.</p>
+  </section>
+
+  <section class="block" id="releases" aria-labelledby="h-releases">
+    <h2 class="row" id="h-releases">Releases</h2>
+    <ul class="drops">
+      <li>
+        <div class="cover"><img src="assets/img/cover-cftf.webp" width="1200" height="1200" alt="Can't Fake The Fire cover" loading="lazy" decoding="async"></div>
+        <h3 class="row">Can't Fake The Fire</h3>
+        <span class="when"><b>Out now</b></span>
+        <div class="links"><a href="go/ytm/">YouTube Music</a><a href="go/lyric/">Lyric video</a><a href="go/apple/">Apple Music</a><a href="go/spotify/">Spotify</a></div>
+      </li>
+      <li>
+        <div class="cover"><img src="assets/img/cover-sunday-calls.webp" width="560" height="560" alt="Sunday Calls cover" loading="lazy" decoding="async"></div>
+        <h3 class="row">Sunday Calls</h3>
+        <span class="when">Oct 21</span>
+      </li>
+      <li>
+        <div class="cover blank"><span class="row">Nov 6</span></div>
+        <h3 class="row">Might As Well</h3>
+      </li>
+      <li>
+        <div class="cover"><img src="assets/img/cover-sweet-escape.webp" width="560" height="560" alt="Sweet Escape cover" loading="lazy" decoding="async"></div>
+        <h3 class="row">Sweet Escape</h3>
+        <div class="links"><a href="https://open.spotify.com/track/2wBnpEdMuR5kdF0ifKbwbV">Spotify</a><a href="https://music.apple.com/us/album/sweet-escape/1825002549?i=1825002550">Apple Music</a><a href="https://music.youtube.com/watch?v=q6RZvFy3DD4">YouTube Music</a></div>
+      </li>
+      <li>
+        <div class="cover"><img src="assets/img/cover-stuck-on-you.webp" width="560" height="560" alt="Stuck On You cover" loading="lazy" decoding="async"></div>
+        <h3 class="row">Stuck On You</h3>
+        <div class="links"><a href="https://youtu.be/R20rSxUOpWI">YouTube</a></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="block" id="elsewhere" aria-labelledby="h-elsewhere">
+    <h2 class="row" id="h-elsewhere">Find us</h2>
+    <ul class="elsewhere">
+      <li><a href="https://www.youtube.com/@VelvetFunk?sub_confirmation=1"><span class="row">YouTube</span><span class="handle">@VelvetFunk</span></a></li>
+      <li><a href="https://www.instagram.com/velvet.funk/"><span class="row">Instagram</span><span class="handle">@velvet.funk</span></a></li>
+      <li><a href="https://www.tiktok.com/@velvet.funk"><span class="row">TikTok</span><span class="handle">@velvet.funk</span></a></li>
+      <li><a href="https://open.spotify.com/artist/1oCgOGxyjqDexacJlm9Scu"><span class="row">Spotify</span><span class="handle">Velvet Funk</span></a></li>
+      <li><a href="https://music.apple.com/us/artist/velvet-funk/1751124918"><span class="row">Apple Music</span><span class="handle">Velvet Funk</span></a></li>
+      <li><a href="https://www.facebook.com/velvetfunk.music"><span class="row">Facebook</span><span class="handle">velvetfunk.music</span></a></li>
+    </ul>
+  </section>
+
+  <section class="block mail" id="mail" aria-labelledby="h-mail">
+    <h2 class="row" id="h-mail">We'll write when the <span class="key">streetlights</span> come on</h2>
+    <!-- Not connected to any list yet. The field is disabled and nothing is sent.
+         KIT EMBED GOES HERE: when the Kit account exists, replace this whole <form> with the Kit inline form
+         (double opt-in on), keep the h2 above and the note below. -->
+    <form onsubmit="return false" aria-describedby="mail-note">
+      <label class="sr" for="email">Email</label>
+      <input id="email" type="email" value="" aria-label="Email" autocomplete="off" disabled>
+      <button class="btn" type="button" disabled>Soon</button>
+    </form>
+    <p class="note" id="mail-note">One email per release. Nothing else.</p>
+  </section>
+
+  <footer>
+    <img src="assets/img/logo-ivory.webp" width="800" height="174" alt="Velvet Funk" loading="lazy">
+    <p>Vocals and some of the instruments are AI-generated, and so are the faces, images and video on this site. Lyrics, editing and mix are human.</p>
+    <p class="credit">Written and produced by regius77</p>
+    <p>No cookies, no tracking.</p>
+  </footer>
+</main>
+
+<div class="bar" id="bar" aria-hidden="true">
+  <img src="assets/img/cover-cftf-96.webp" width="44" height="44" alt="">
+  <div class="t">Can't Fake The Fire</div>
+  <a class="btn" href="go/ytm/" tabindex="-1">Listen</a>
+</div>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var walk = document.querySelector('.walk'), stage = document.getElementById('stage');
+  var street = document.getElementById('street'), wall = document.getElementById('wall');
+  var CUT = 0.62, raf = 0;
+  var portrait = matchMedia('(max-aspect-ratio: 4/5)');
+  function zoom(){ return portrait.matches ? 0.25 : 0.6; }
+
+  // One gesture: walk toward the red light on the sidewalk, hard cut to the wall inside.
+  function update(){
+    raf = 0;
+    var total = walk.offsetHeight - innerHeight;
+    var p = Math.min(1, Math.max(0, -walk.getBoundingClientRect().top / total));
+    if (p < CUT){
+      var e = p / CUT;
+      if (!reduce) street.style.transform = 'scale(' + (1 + zoom() * e * e).toFixed(4) + ')';
+      stage.classList.remove('inside');
+    } else {
+      var f = (p - CUT) / (1 - CUT);
+      if (!reduce) wall.style.transform = 'scale(' + (1 + 0.07 * f).toFixed(4) + ')';
+      stage.classList.add('inside');
+    }
+  }
+  addEventListener('scroll', function(){ if (!raf) raf = requestAnimationFrame(update); }, {passive:true});
+  addEventListener('resize', update);
+
+  // "More platforms": open the full list.
+  document.querySelectorAll('[data-listen]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var ul = document.getElementById(b.getAttribute('aria-controls'));
+      var open = !ul.classList.contains('open');
+      ul.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', open);
+    });
+  });
+
+  // Fixed bar: shows once the hero Listen button has left the screen.
+  var bar = document.getElementById('bar'), heroBtn = document.querySelector('.hero .btn');
+  new IntersectionObserver(function(en){
+    var on = !en[0].isIntersecting && en[0].boundingClientRect.top < 0;
+    bar.classList.toggle('on', on);
+    bar.setAttribute('aria-hidden', !on);
+    bar.querySelectorAll('button,a').forEach(function(x){ x.tabIndex = on ? 0 : -1; });
+  }).observe(heroBtn);
+
+  // Dev contract: ?jump=<scrollY> lands already scrolled; __ready after images decode.
+  var jump = new URLSearchParams(location.search).get('jump');
+  Promise.all([street, wall].map(function(i){ return i.decode ? i.decode().catch(function(){}) : null; }))
+    .then(function(){ return document.fonts ? document.fonts.ready : null; })
+    .then(function(){
+      if (jump !== null){ document.documentElement.style.scrollBehavior = 'auto'; scrollTo(0, +jump); }
+      update();
+      requestAnimationFrame(function(){ window.__ready = true; });
+    });
+  update();
+})();
+</script>
+<!-- CLOUDFLARE WEB ANALYTICS: to be activated later. Paste the snippet from the Cloudflare dashboard here AND in every
+     /go/*/index.html (the clicks are counted as visits to those pages).
+     WHEN IT IS ACTIVE, change the footer line "No cookies, no tracking." to:
+     "No cookies. We count visits and clicks, nothing about you."
+     Example snippet:
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "TOKEN"}'></script> -->
+</body>
+</html>
