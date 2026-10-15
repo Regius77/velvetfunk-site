@@ -18,8 +18,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="preload" href="assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/street-portrait.webp" media="(max-aspect-ratio: 4/5)">
-<link rel="preload" as="image" href="assets/img/street-1600.webp" imagesrcset="assets/img/street-1600.webp 1600w, assets/img/street-2400.webp 2400w" imagesizes="100vw" media="(min-aspect-ratio: 4.0001/5)">
+<link rel="preload" as="image" href="assets/img/hero-cftf-f0.webp" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -63,21 +62,24 @@ a{color:inherit}
 .key{font-family:"Fraunces VF",Georgia,serif;font-weight:600;text-transform:none;letter-spacing:-.01em;line-height:.8}
 .label{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-2)}
 
-/* ---------- the walk: street, then the basement wall ---------- */
-.walk{position:relative;height:260svh}
+/* ---------- first screen: a real shot (v3); full screen on phones, a column on the right on wide screens ---------- */
+/* test del vero 15/10: the 1.3x limit is counted in CSS pixels (880 or 1080 file px across a 430 px phone = 2x), so on phones the
+   shot covers the whole screen, no side bands */
+.top{position:relative;height:100svh;overflow:hidden;background:#05070a}
+.hv{position:absolute;inset:0;overflow:hidden}
+.hv img,.hv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.top::after{content:"";position:absolute;inset:auto 0 0 0;height:50%;background:linear-gradient(to bottom,rgba(15,11,10,0),rgba(15,11,10,.45) 35%,rgba(15,11,10,.85) 80%);pointer-events:none}
+video.plate,.hv video,.cover video{opacity:0;pointer-events:none}
+video.plate.on,.hv video.on{opacity:1}
+
+/* ---------- the basement wall ---------- */
+.walk{position:relative;height:160svh}
 .stage{position:sticky;top:0;height:100svh;overflow:hidden;background:#05070a}
 .stage .layer,.stage picture,.stage .plate{position:absolute;inset:0;width:100%;height:100%}
-video.plate,.cover video{opacity:0;pointer-events:none}
-video.plate.on{opacity:1}
-.plate{object-fit:cover;object-position:0% 50%;will-change:transform;transform-origin:var(--ox,11%) 84%}
-.wall{visibility:hidden}
-.wall .plate{transform-origin:15% 25%}
-.stage.inside .street{visibility:hidden}
-.stage.inside .wall{visibility:visible}
+.plate{object-fit:cover;object-position:0% 50%;will-change:transform;transform-origin:15% 25%}
 .wall::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(to bottom,rgba(15,11,10,0),var(--ink))}
-.lyric{position:absolute;right:var(--gutter);top:42%;max-width:min(46vw,620px);margin:0;font-size:clamp(40px,6.4vw,104px);color:var(--ivory);text-align:right;visibility:hidden;z-index:2}
+.lyric{position:absolute;right:var(--gutter);top:42%;max-width:min(46vw,620px);margin:0;font-size:clamp(40px,6.4vw,104px);color:var(--ivory);text-align:right;z-index:2}
 .lyric .key{display:inline-block;font-size:1.5em;color:#fbe9e2}
-.stage.inside .lyric{visibility:visible}
 
 .hero{position:absolute;top:0;left:0;right:0;height:100svh;z-index:3;padding:calc(env(safe-area-inset-top) + 22px) var(--gutter) calc(env(safe-area-inset-bottom) + 28px);display:flex;flex-direction:column;justify-content:space-between;pointer-events:none;overflow:hidden}
 .hero > *{pointer-events:auto}
@@ -111,6 +113,9 @@ section.block{padding:clamp(64px,10vw,140px) var(--gutter) 0;max-width:1320px;ma
 .crew figcaption{padding-top:12px}
 .crew .name{display:block;font-size:clamp(26px,3vw,40px)}
 .ai{display:block;margin-top:6px;font-size:13px;color:var(--ivory-2)}
+.ai-mark{text-decoration:none;cursor:default;display:inline-block;margin-left:8px;padding:1px 5px 0;border:1px solid var(--ivory-2);border-radius:3px;font-size:11px;line-height:1.4;letter-spacing:.06em;color:var(--ivory-2);vertical-align:1px}
+.cover .ai-mark,.hero-mark{position:absolute;z-index:3;right:8px;bottom:8px;margin:0;background:rgba(0,0,0,.45);border-color:rgba(255,255,255,.55);color:rgba(255,255,255,.85)}
+.hero-mark{left:calc(var(--gutter) + env(safe-area-inset-left));right:auto;top:calc(env(safe-area-inset-top) + 26px);bottom:auto}
 .after{margin:28px 0 0;font-size:clamp(18px,1.7vw,22px);color:var(--ivory-2);max-width:34ch}
 
 .drops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.6vw,22px)}
@@ -163,17 +168,32 @@ footer .credit{color:var(--ivory)}
   .drops li:first-child .cover{aspect-ratio:auto;max-width:calc(1404px / var(--dpr, 1))}
 }
 @media (max-width:640px){
+  .hv img,.hv video{object-position:50% 55%}
   .lyric{left:var(--gutter);right:var(--gutter);top:auto;bottom:22%;max-width:none;text-align:left;font-size:clamp(40px,13vw,64px)}
   .elsewhere .handle{display:none}
 }
-@media (min-width:641px){
-  /* v2_video: on wide screens the title sits on the lamp-lit asphalt (v0 measured 2.6-3.7:1 at 1024-1920 px); a soft shadow
-     hugging the letters brings it above 4.5:1 without darkening the street or the red light */
-  .release .label,.release h1{text-shadow:0 0 22px rgba(5,6,9,.9),0 0 6px rgba(5,6,9,.7)}
-  .release .label{color:var(--ivory)}
+/* v3: no shadow behind the letters (test del vero: it read as a blurred ghost of the title); the label is full ivory */
+.release .label{color:var(--ivory)}
+@media (min-width:900px) and (min-aspect-ratio:1/1){
+  /* a print laid on the page: same margin as the logo on every side, the title block centred next to it */
+  .hv{inset:auto;top:calc(env(safe-area-inset-top) + 22px);bottom:22px;right:var(--gutter);width:auto;aspect-ratio:880/1920;border-radius:2px}
+  .top::after{display:none}
+  .hero{justify-content:center;padding-right:calc(((100svh - 44px - env(safe-area-inset-top)) * 0.4583) + 2 * var(--gutter))}
+  .logo{align-self:flex-start;margin-bottom:clamp(32px,6vh,72px)}
+  .release h1{font-size:clamp(48px,calc((100vw - ((100svh - 44px - env(safe-area-inset-top)) * 0.4583) - 3 * var(--gutter)) * .11),142px)}
 }
-@media (max-aspect-ratio:4/5){
-  .stage .street .plate{--ox:38%}
+@media (max-width:899px),(max-aspect-ratio:1/1){
+  .release::before{inset:-56px calc(-1 * var(--gutter)) -40px calc(-1 * var(--gutter));background:linear-gradient(to bottom,rgba(15,11,10,0),rgba(15,11,10,.58) 56px,rgba(15,11,10,.58))}
+}
+@media (max-width:640px) and (max-height:700px){
+  .release h1{font-size:46px;margin:6px 0 14px}
+  .release h1 .key{font-size:1.5em}
+  .logo{width:120px}
+}
+@media (max-width:640px) and (max-height:600px){
+  .release h1{font-size:38px;margin:4px 0 10px}
+  .btn{padding:12px 22px;min-height:44px;font-size:15px}
+  .hero{padding-bottom:16px}
 }
 @media (prefers-reduced-motion:reduce){
   .plate{transform:none!important}
@@ -183,25 +203,12 @@ footer .credit{color:var(--ivory)}
 </head>
 <body>
 
-<section class="walk" aria-label="Velvet Funk">
-  <div class="stage" id="stage">
-    <div class="layer street">
-      <picture>
-        <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/street-portrait.webp">
-        <img class="plate" id="street" src="assets/img/street-1600.webp" srcset="assets/img/street-1600.webp 1600w, assets/img/street-2400.webp 2400w" sizes="100vw" alt="A Detroit street at night. Brick houses, a covered car, a burgundy Cadillac at the curb, red light on the sidewalk." fetchpriority="high">
-      </picture>
-      <video class="plate" id="street-v" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-l="assets/video/street-l" data-p="assets/video/street-p"></video>
-    </div>
-    <div class="layer wall">
-      <picture>
-        <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/wall-portrait.webp">
-        <img class="plate" id="wall" src="assets/img/wall-2000.webp" alt="A painted brick wall in a basement, one red bulb on a wire." loading="eager" decoding="async">
-      </picture>
-      <video class="plate" id="wall-v" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-l="assets/video/wall-l" data-p="assets/video/wall-p"></video>
-    </div>
-    <p class="lyric row" aria-hidden="true">You can lie<br>with lips,<br>but not with <span class="key">hips</span></p>
+<section class="top" aria-label="Velvet Funk">
+  <abbr class="ai-mark hero-mark" title="AI-generated video">AI</abbr>
+  <div class="hv">
+    <img id="hero-img" src="assets/img/hero-cftf-f0.webp" width="880" height="1920" alt="" fetchpriority="high" decoding="async">
+    <video id="hero-v" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="assets/video/hero-cftf"></video>
   </div>
-
   <header class="hero">
     <img class="logo" src="assets/img/logo-ivory.webp" width="800" height="174" alt="Velvet Funk">
     <div class="release">
@@ -221,17 +228,30 @@ footer .credit{color:var(--ivory)}
   </header>
 </section>
 
+<section class="walk" aria-hidden="true">
+  <div class="stage" id="stage">
+    <div class="layer wall">
+      <picture>
+        <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/wall-portrait.webp">
+        <img class="plate" id="wall" src="assets/img/wall-2000.webp" alt="" loading="lazy" decoding="async">
+      </picture>
+      <video class="plate" id="wall-v" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-l="assets/video/wall-l" data-p="assets/video/wall-p"></video>
+    </div>
+    <p class="lyric row" aria-hidden="true">You can lie<br>with lips,<br>but not with <span class="key">hips</span></p>
+  </div>
+</section>
+
 <main>
   <section class="block" id="collective" aria-labelledby="h-collective">
     <h2 class="row" id="h-collective">The <span class="key">collective</span></h2>
     <div class="crew">
       <figure>
         <div class="ph"><img src="assets/img/mike-era.webp" width="800" height="1000" alt="Mike laughing on an aluminium lawn chair in a sunny driveway, mint green house paint on his shirt and forearm, pink round glasses, gold hoop." loading="lazy" decoding="async"></div>
-        <figcaption><span class="name row">Mike</span><span class="ai">AI-generated character</span></figcaption>
+        <figcaption><span class="name row">Mike</span><span class="ai">Lead vocals<abbr class="ai-mark" title="AI-generated image">AI</abbr></span></figcaption>
       </figure>
       <figure>
         <div class="ph"><img src="assets/img/june-theo.webp" width="800" height="997" alt="June and Theo from behind, sitting on the hood of a burgundy Cadillac in a field at night, her mules on the gravel." loading="lazy" decoding="async"></div>
-        <figcaption><span class="name row">June &amp; Theo</span><span class="ai">AI-generated characters</span></figcaption>
+        <figcaption><span class="name row">June &amp; Theo</span><span class="ai">Vocals<abbr class="ai-mark" title="AI-generated image">AI</abbr></span></figcaption>
       </figure>
     </div>
     <p class="after">Detroit. More of us downstairs.</p>
@@ -241,7 +261,7 @@ footer .credit{color:var(--ivory)}
     <h2 class="row" id="h-releases">Releases</h2>
     <ul class="drops">
       <li>
-        <div class="cover"><img src="assets/img/card-cftf-f0-640.webp" srcset="assets/img/card-cftf-f0-640.webp 640w, assets/img/card-cftf-f0-1080.webp 1080w" sizes="(max-width: 900px) 92vw, 20vw" width="1080" height="1080" alt="Can't Fake The Fire cover" loading="lazy" decoding="async"><video autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-card="assets/video/card-cftf" data-card-1080="assets/video/card-cftf-1080"></video></div>
+        <div class="cover"><img src="assets/img/card-cftf-f0-640.webp" srcset="assets/img/card-cftf-f0-640.webp 640w, assets/img/card-cftf-f0-1080.webp 1080w" sizes="(max-width: 900px) 92vw, 20vw" width="1080" height="1080" alt="Can't Fake The Fire cover" loading="lazy" decoding="async"></div>
         <h3 class="row">Can't Fake The Fire</h3>
         <span class="when"><b>Out now</b></span>
         <div class="links"><a href="go/ytm/">YouTube Music</a><a href="go/lyric/">Lyric video</a><a href="go/apple/">Apple Music</a><a href="go/spotify/">Spotify</a></div>
@@ -296,7 +316,7 @@ footer .credit{color:var(--ivory)}
 
   <footer>
     <img src="assets/img/logo-ivory.webp" width="800" height="174" alt="Velvet Funk" loading="lazy">
-    <p>Vocals and some of the instruments are AI-generated, and so are the faces, images and video on this site. On some tracks the guitars are played for real. Lyrics, editing and mixing are done by a person.</p>
+    <p>AI disclosure: the vocals, some of the instruments and every face, image and video on this site are generated with artificial intelligence. Each face carries a small AI mark where it first appears. On some tracks the guitars are played for real. Lyrics, editing and mixing are done by a person.</p>
     <p class="credit">Written and produced by regius77</p>
     <p>No cookies, no tracking.</p>
   </footer>
@@ -311,78 +331,56 @@ footer .credit{color:var(--ivory)}
 <script>
 (function(){
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var walk = document.querySelector('.walk'), stage = document.getElementById('stage');
-  var street = document.getElementById('street'), wall = document.getElementById('wall');
-  var streetV = document.getElementById('street-v'), wallV = document.getElementById('wall-v');
-  // Loops: never with reduced motion or Save-Data; the image underneath stays until a frame is playing.
+  var topS = document.querySelector('.top'), heroImg = document.getElementById('hero-img'), heroV = document.getElementById('hero-v');
+  var walk = document.querySelector('.walk'), wall = document.getElementById('wall'), wallV = document.getElementById('wall-v');
   document.documentElement.style.setProperty('--dpr', Math.max(1, window.devicePixelRatio || 1));
+  // Loops: never with reduced motion or Save-Data; the still frame underneath stays until a frame is playing.
   var conn = navigator.connection || {};
-  var VID = !reduce && !conn.saveData && !!document.createElement('video').canPlayType;
+  var VID = !reduce && !conn.saveData && !!document.createElement('video').canPlayType && 'IntersectionObserver' in window;
   var TYPES = [['webm', 'video/webm; codecs="vp9"'], ['mp4', 'video/mp4; codecs="avc1.640028"']];
   function arm(v, base, poster){
-    if (!VID || v.getAttribute('data-base') === base) return;
+    if (!VID || !base || v.getAttribute('data-base') === base) return;
     v.setAttribute('data-base', base);
     v.classList.remove('on');
     while (v.firstChild) v.removeChild(v.firstChild);
     if (poster) v.poster = poster;
     TYPES.forEach(function(t){ var s = document.createElement('source'); s.src = base + '.' + t[0]; s.type = t[1]; v.appendChild(s); });
     v.lastChild.addEventListener('error', function(){ v.classList.remove('on'); v.setAttribute('data-bad', ''); });
-    if (!v.__on){ v.__on = 1; v.addEventListener('playing', function(){ v.classList.add('on'); if (v === streetV || v === wallV) update(); }); }
+    v.addEventListener('playing', function(){ v.classList.add('on'); if (!v.__vis) v.pause(); });
     v.load();
   }
-  function play(v){ if (v.getAttribute('data-base') && !v.hasAttribute('data-bad') && v.paused){ var r = v.play(); if (r && r.catch) r.catch(function(){}); } }
-  function pause(v){ if (!v.paused) v.pause(); }
-  function heroBase(v){ return v.getAttribute(portrait.matches ? 'data-p' : 'data-l'); }
-  var heroOn = false, wallArmed = false;
-  var CUT = 0.62, raf = 0;
+  function play(v){ v.__vis = true; if (v.getAttribute('data-base') && !v.hasAttribute('data-bad') && v.paused){ var r = v.play(); if (r && r.catch) r.catch(function(){}); } }
+  function pause(v){ v.__vis = false; if (!v.paused) v.pause(); }
+  // Each loop is fetched when its section comes near the screen and plays only while it is on screen.
+  function watch(el, v, base, poster, margin){
+    new IntersectionObserver(function(en){
+      if (en[0].isIntersecting){ arm(v, base(), poster()); play(v); } else pause(v);
+    }, {rootMargin: margin}).observe(el);
+  }
   var portrait = matchMedia('(max-aspect-ratio: 4/5)');
-  function zoom(){ return portrait.matches ? 0.25 : 0.6; }
-
-  // One gesture: walk toward the red light on the sidewalk, hard cut to the wall inside.
+  var raf = 0;
   function update(){
     raf = 0;
+    if (!walk) return;
     var total = walk.offsetHeight - innerHeight;
     var p = Math.min(1, Math.max(0, -walk.getBoundingClientRect().top / total));
-    if (p < CUT){
-      var e = p / CUT;
-      if (!reduce) street.style.transform = streetV.style.transform = 'scale(' + (1 + zoom() * e * e).toFixed(4) + ')';
-      stage.classList.remove('inside');
-    } else {
-      var f = (p - CUT) / (1 - CUT);
-      if (!reduce) wall.style.transform = wallV.style.transform = 'scale(' + (1 + 0.07 * f).toFixed(4) + ')';
-      stage.classList.add('inside');
-    }
-    // the wall loop is fetched only when the walk gets close to the cut; only the visible loop plays
-    if (heroOn && !wallArmed && p > 0.3){ wallArmed = true; arm(wallV, heroBase(wallV), wall.currentSrc || wall.src); }
-    var gone = walk.getBoundingClientRect().bottom <= 0;
-    if (gone || p >= CUT) pause(streetV); else play(streetV);
-    if (gone || p < CUT) pause(wallV); else play(wallV);
+    if (!reduce) wall.style.transform = wallV.style.transform = 'scale(' + (1 + 0.07 * p).toFixed(4) + ')';
   }
   addEventListener('scroll', function(){ if (!raf) raf = requestAnimationFrame(update); }, {passive:true});
   addEventListener('resize', update);
-  function heroStart(){
-    heroOn = true;
-    arm(streetV, heroBase(streetV), street.currentSrc || street.src);
-    if (wallArmed){ wallArmed = false; wallV.removeAttribute('data-base'); }
-    update();
-  }
-  if (portrait.addEventListener) portrait.addEventListener('change', function(){ if (heroOn){ streetV.removeAttribute('data-bad'); wallV.removeAttribute('data-bad'); heroStart(); } });
 
   // Release cards: the Canvas loop is fetched when the card comes near the screen and paused when it leaves.
-  var cards = document.querySelectorAll('video[data-card]');
-  if (VID && 'IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(en){
-      en.forEach(function(x){
-        var v = x.target;
-        if (x.isIntersecting){
-          // stessa soglia dello srcset dell'immagine: oltre 640 px fisici la versione da 1080 (mai piu' di 1,3x: vedi max-width)
-          var big = v.getAttribute('data-card-1080') && v.clientWidth * (window.devicePixelRatio || 1) > 640;
-          var img = v.parentNode.querySelector('img');
-          arm(v, v.getAttribute(big ? 'data-card-1080' : 'data-card'), img.currentSrc || img.src); play(v);
-        } else pause(v);
-      });
-    }, {rootMargin: '150px 0px'});
-    cards.forEach(function(v){ io.observe(v); });
+  if (VID){
+    document.querySelectorAll('video[data-card]').forEach(function(v){
+      var img = v.parentNode.querySelector('img');
+      watch(v, v, function(){
+        var big = v.getAttribute('data-card-1080') && v.clientWidth * (window.devicePixelRatio || 1) > 640;
+        return v.getAttribute(big ? 'data-card-1080' : 'data-card');
+      }, function(){ return img.currentSrc || img.src; }, '150px 0px');
+    });
+    // the wall loop starts when a quarter of the wall is on screen (not at load, when the wall touches the bottom edge);
+    // its still (lazy image) stays underneath, no separate poster download
+    if (walk) watch(walk, wallV, function(){ return wallV.getAttribute(portrait.matches ? 'data-p' : 'data-l'); }, function(){ return wall.complete ? wall.currentSrc : ''; }, '0px 0px -25% 0px');
   }
 
   // "More platforms": open the full list.
@@ -404,14 +402,15 @@ footer .credit{color:var(--ivory)}
     bar.querySelectorAll('button,a').forEach(function(x){ x.tabIndex = on ? 0 : -1; });
   }).observe(heroBtn);
 
-  // Dev contract: ?jump=<scrollY> lands already scrolled; __ready after images decode.
+  // Dev contract: ?jump=<scrollY> lands already scrolled; __ready after the hero still decodes.
+  // The hero loop starts only after its still frame is on screen.
   var jump = new URLSearchParams(location.search).get('jump');
-  Promise.all([street, wall].map(function(i){ return i.decode ? i.decode().catch(function(){}) : null; }))
+  (heroImg.decode ? heroImg.decode().catch(function(){}) : Promise.resolve())
     .then(function(){ return document.fonts ? document.fonts.ready : null; })
     .then(function(){
       if (jump !== null){ document.documentElement.style.scrollBehavior = 'auto'; scrollTo(0, +jump); }
       update();
-      if (VID) heroStart();
+      if (VID) watch(topS, heroV, function(){ return heroV.getAttribute('data-src'); }, function(){ return heroImg.currentSrc || heroImg.src; }, '0px');
       requestAnimationFrame(function(){ window.__ready = true; });
     });
   update();
