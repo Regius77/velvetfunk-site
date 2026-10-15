@@ -66,7 +66,9 @@ a{color:inherit}
 /* ---------- the walk: street, then the basement wall ---------- */
 .walk{position:relative;height:260svh}
 .stage{position:sticky;top:0;height:100svh;overflow:hidden;background:#05070a}
-.stage picture,.stage img.plate{position:absolute;inset:0;width:100%;height:100%}
+.stage .layer,.stage picture,.stage .plate{position:absolute;inset:0;width:100%;height:100%}
+video.plate,.cover video{opacity:0;pointer-events:none}
+video.plate.on{opacity:1}
 .plate{object-fit:cover;object-position:0% 50%;will-change:transform;transform-origin:var(--ox,11%) 84%}
 .wall{visibility:hidden}
 .wall .plate{transform-origin:15% 25%}
@@ -114,7 +116,10 @@ section.block{padding:clamp(64px,10vw,140px) var(--gutter) 0;max-width:1320px;ma
 .drops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.6vw,22px)}
 .drops li{min-width:0}
 .cover{aspect-ratio:1;background:var(--ink-2);overflow:hidden;border-radius:2px}
+.cover{position:relative}
 .cover img{width:100%;height:100%;object-fit:cover}
+.cover video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover video.on{opacity:1}
 .cover.blank{display:flex;align-items:flex-end;padding:14px;border:1px solid var(--line);background:#120e0d}
 .cover.blank span{font-size:clamp(34px,4vw,56px);color:var(--ivory-2)}
 .drops h3{margin:12px 0 2px;font-size:clamp(22px,2.2vw,30px)}
@@ -155,11 +160,17 @@ footer .credit{color:var(--ivory)}
 @media (max-width:900px){
   .drops{grid-template-columns:repeat(2,1fr)}
   .drops li:first-child{grid-column:1 / -1}
-  .drops li:first-child .cover{aspect-ratio:auto}
+  .drops li:first-child .cover{aspect-ratio:auto;max-width:calc(1404px / var(--dpr, 1))}
 }
 @media (max-width:640px){
   .lyric{left:var(--gutter);right:var(--gutter);top:auto;bottom:22%;max-width:none;text-align:left;font-size:clamp(40px,13vw,64px)}
   .elsewhere .handle{display:none}
+}
+@media (min-width:641px){
+  /* v2_video: on wide screens the title sits on the lamp-lit asphalt (v0 measured 2.6-3.7:1 at 1024-1920 px); a soft shadow
+     hugging the letters brings it above 4.5:1 without darkening the street or the red light */
+  .release .label,.release h1{text-shadow:0 0 22px rgba(5,6,9,.9),0 0 6px rgba(5,6,9,.7)}
+  .release .label{color:var(--ivory)}
 }
 @media (max-aspect-ratio:4/5){
   .stage .street .plate{--ox:38%}
@@ -174,14 +185,20 @@ footer .credit{color:var(--ivory)}
 
 <section class="walk" aria-label="Velvet Funk">
   <div class="stage" id="stage">
-    <picture class="street">
-      <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/street-portrait.webp">
-      <img class="plate" id="street" src="assets/img/street-1600.webp" srcset="assets/img/street-1600.webp 1600w, assets/img/street-2400.webp 2400w" sizes="100vw" alt="A Detroit street at night. Brick houses, a covered car, a burgundy Cadillac at the curb, red light on the sidewalk." fetchpriority="high">
-    </picture>
-    <picture class="wall">
-      <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/wall-portrait.webp">
-      <img class="plate" id="wall" src="assets/img/wall-2000.webp" alt="A painted brick wall in a basement, one red bulb on a wire." loading="eager" decoding="async">
-    </picture>
+    <div class="layer street">
+      <picture>
+        <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/street-portrait.webp">
+        <img class="plate" id="street" src="assets/img/street-1600.webp" srcset="assets/img/street-1600.webp 1600w, assets/img/street-2400.webp 2400w" sizes="100vw" alt="A Detroit street at night. Brick houses, a covered car, a burgundy Cadillac at the curb, red light on the sidewalk." fetchpriority="high">
+      </picture>
+      <video class="plate" id="street-v" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-l="assets/video/street-l" data-p="assets/video/street-p"></video>
+    </div>
+    <div class="layer wall">
+      <picture>
+        <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/wall-portrait.webp">
+        <img class="plate" id="wall" src="assets/img/wall-2000.webp" alt="A painted brick wall in a basement, one red bulb on a wire." loading="eager" decoding="async">
+      </picture>
+      <video class="plate" id="wall-v" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-l="assets/video/wall-l" data-p="assets/video/wall-p"></video>
+    </div>
     <p class="lyric row" aria-hidden="true">You can lie<br>with lips,<br>but not with <span class="key">hips</span></p>
   </div>
 
@@ -209,7 +226,7 @@ footer .credit{color:var(--ivory)}
     <h2 class="row" id="h-collective">The <span class="key">collective</span></h2>
     <div class="crew">
       <figure>
-        <div class="ph"><img src="assets/img/mike.webp" width="800" height="800" alt="Mike on a cream rotary phone, pink round glasses, gold hoop." loading="lazy" decoding="async"></div>
+        <div class="ph"><img src="assets/img/mike-era.webp" width="800" height="1000" alt="Mike laughing on an aluminium lawn chair in a sunny driveway, mint green house paint on his shirt and forearm, pink round glasses, gold hoop." loading="lazy" decoding="async"></div>
         <figcaption><span class="name row">Mike</span><span class="ai">AI-generated character</span></figcaption>
       </figure>
       <figure>
@@ -224,13 +241,13 @@ footer .credit{color:var(--ivory)}
     <h2 class="row" id="h-releases">Releases</h2>
     <ul class="drops">
       <li>
-        <div class="cover"><img src="assets/img/cover-cftf.webp" width="1200" height="1200" alt="Can't Fake The Fire cover" loading="lazy" decoding="async"></div>
+        <div class="cover"><img src="assets/img/card-cftf-f0-640.webp" srcset="assets/img/card-cftf-f0-640.webp 640w, assets/img/card-cftf-f0-1080.webp 1080w" sizes="(max-width: 900px) 92vw, 20vw" width="1080" height="1080" alt="Can't Fake The Fire cover" loading="lazy" decoding="async"><video autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-card="assets/video/card-cftf" data-card-1080="assets/video/card-cftf-1080"></video></div>
         <h3 class="row">Can't Fake The Fire</h3>
         <span class="when"><b>Out now</b></span>
         <div class="links"><a href="go/ytm/">YouTube Music</a><a href="go/lyric/">Lyric video</a><a href="go/apple/">Apple Music</a><a href="go/spotify/">Spotify</a></div>
       </li>
       <li>
-        <div class="cover"><img src="assets/img/cover-sunday-calls.webp" width="560" height="560" alt="Sunday Calls cover" loading="lazy" decoding="async"></div>
+        <div class="cover"><img src="assets/img/card-sundaycalls-f0-640.webp" width="640" height="640" alt="Sunday Calls cover" loading="lazy" decoding="async"><video autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-card="assets/video/card-sundaycalls"></video></div>
         <h3 class="row">Sunday Calls</h3>
         <span class="when">Oct 21</span>
         <div class="links"><a href="go/sundaycalls/">Pre-save</a></div>
@@ -296,6 +313,27 @@ footer .credit{color:var(--ivory)}
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var walk = document.querySelector('.walk'), stage = document.getElementById('stage');
   var street = document.getElementById('street'), wall = document.getElementById('wall');
+  var streetV = document.getElementById('street-v'), wallV = document.getElementById('wall-v');
+  // Loops: never with reduced motion or Save-Data; the image underneath stays until a frame is playing.
+  document.documentElement.style.setProperty('--dpr', Math.max(1, window.devicePixelRatio || 1));
+  var conn = navigator.connection || {};
+  var VID = !reduce && !conn.saveData && !!document.createElement('video').canPlayType;
+  var TYPES = [['webm', 'video/webm; codecs="vp9"'], ['mp4', 'video/mp4; codecs="avc1.640028"']];
+  function arm(v, base, poster){
+    if (!VID || v.getAttribute('data-base') === base) return;
+    v.setAttribute('data-base', base);
+    v.classList.remove('on');
+    while (v.firstChild) v.removeChild(v.firstChild);
+    if (poster) v.poster = poster;
+    TYPES.forEach(function(t){ var s = document.createElement('source'); s.src = base + '.' + t[0]; s.type = t[1]; v.appendChild(s); });
+    v.lastChild.addEventListener('error', function(){ v.classList.remove('on'); v.setAttribute('data-bad', ''); });
+    if (!v.__on){ v.__on = 1; v.addEventListener('playing', function(){ v.classList.add('on'); if (v === streetV || v === wallV) update(); }); }
+    v.load();
+  }
+  function play(v){ if (v.getAttribute('data-base') && !v.hasAttribute('data-bad') && v.paused){ var r = v.play(); if (r && r.catch) r.catch(function(){}); } }
+  function pause(v){ if (!v.paused) v.pause(); }
+  function heroBase(v){ return v.getAttribute(portrait.matches ? 'data-p' : 'data-l'); }
+  var heroOn = false, wallArmed = false;
   var CUT = 0.62, raf = 0;
   var portrait = matchMedia('(max-aspect-ratio: 4/5)');
   function zoom(){ return portrait.matches ? 0.25 : 0.6; }
@@ -307,16 +345,45 @@ footer .credit{color:var(--ivory)}
     var p = Math.min(1, Math.max(0, -walk.getBoundingClientRect().top / total));
     if (p < CUT){
       var e = p / CUT;
-      if (!reduce) street.style.transform = 'scale(' + (1 + zoom() * e * e).toFixed(4) + ')';
+      if (!reduce) street.style.transform = streetV.style.transform = 'scale(' + (1 + zoom() * e * e).toFixed(4) + ')';
       stage.classList.remove('inside');
     } else {
       var f = (p - CUT) / (1 - CUT);
-      if (!reduce) wall.style.transform = 'scale(' + (1 + 0.07 * f).toFixed(4) + ')';
+      if (!reduce) wall.style.transform = wallV.style.transform = 'scale(' + (1 + 0.07 * f).toFixed(4) + ')';
       stage.classList.add('inside');
     }
+    // the wall loop is fetched only when the walk gets close to the cut; only the visible loop plays
+    if (heroOn && !wallArmed && p > 0.3){ wallArmed = true; arm(wallV, heroBase(wallV), wall.currentSrc || wall.src); }
+    var gone = walk.getBoundingClientRect().bottom <= 0;
+    if (gone || p >= CUT) pause(streetV); else play(streetV);
+    if (gone || p < CUT) pause(wallV); else play(wallV);
   }
   addEventListener('scroll', function(){ if (!raf) raf = requestAnimationFrame(update); }, {passive:true});
   addEventListener('resize', update);
+  function heroStart(){
+    heroOn = true;
+    arm(streetV, heroBase(streetV), street.currentSrc || street.src);
+    if (wallArmed){ wallArmed = false; wallV.removeAttribute('data-base'); }
+    update();
+  }
+  if (portrait.addEventListener) portrait.addEventListener('change', function(){ if (heroOn){ streetV.removeAttribute('data-bad'); wallV.removeAttribute('data-bad'); heroStart(); } });
+
+  // Release cards: the Canvas loop is fetched when the card comes near the screen and paused when it leaves.
+  var cards = document.querySelectorAll('video[data-card]');
+  if (VID && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){
+        var v = x.target;
+        if (x.isIntersecting){
+          // stessa soglia dello srcset dell'immagine: oltre 640 px fisici la versione da 1080 (mai piu' di 1,3x: vedi max-width)
+          var big = v.getAttribute('data-card-1080') && v.clientWidth * (window.devicePixelRatio || 1) > 640;
+          var img = v.parentNode.querySelector('img');
+          arm(v, v.getAttribute(big ? 'data-card-1080' : 'data-card'), img.currentSrc || img.src); play(v);
+        } else pause(v);
+      });
+    }, {rootMargin: '150px 0px'});
+    cards.forEach(function(v){ io.observe(v); });
+  }
 
   // "More platforms": open the full list.
   document.querySelectorAll('[data-listen]').forEach(function(b){
@@ -344,6 +411,7 @@ footer .credit{color:var(--ivory)}
     .then(function(){
       if (jump !== null){ document.documentElement.style.scrollBehavior = 'auto'; scrollTo(0, +jump); }
       update();
+      if (VID) heroStart();
       requestAnimationFrame(function(){ window.__ready = true; });
     });
   update();
