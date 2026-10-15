@@ -199,12 +199,16 @@ footer .credit{color:var(--ivory)}
   .plate{transform:none!important}
   .bar{transition:none}
 }
+
+/* marchio AI unico e tenue (15/10 sera) */
+.hero-mark{opacity:.62;text-decoration:none;cursor:pointer}
+.hero-mark:hover,.hero-mark:focus-visible{opacity:1}
 </style>
 </head>
 <body>
 
 <section class="top" aria-label="Velvet Funk">
-  <abbr class="ai-mark hero-mark" title="AI-generated video">AI</abbr>
+  <a class="ai-mark hero-mark" href="#ai-disclosure" aria-label="AI-generated content. Read the AI disclosure">AI</a>
   <div class="hv">
     <img id="hero-img" src="assets/img/hero-cftf-f0.webp" width="880" height="1920" alt="" fetchpriority="high" decoding="async">
     <video id="hero-v" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="assets/video/hero-cftf"></video>
@@ -247,11 +251,11 @@ footer .credit{color:var(--ivory)}
     <div class="crew">
       <figure>
         <div class="ph"><img src="assets/img/mike-era.webp" width="800" height="1000" alt="Mike laughing on an aluminium lawn chair in a sunny driveway, mint green house paint on his shirt and forearm, pink round glasses, gold hoop." loading="lazy" decoding="async"></div>
-        <figcaption><span class="name row">Mike</span><span class="ai">Lead vocals<abbr class="ai-mark" title="AI-generated image">AI</abbr></span></figcaption>
+        <figcaption><span class="name row">Mike</span><span class="ai">Lead vocals</span></figcaption>
       </figure>
       <figure>
         <div class="ph"><img src="assets/img/june-theo.webp" width="800" height="997" alt="June and Theo from behind, sitting on the hood of a burgundy Cadillac in a field at night, her mules on the gravel." loading="lazy" decoding="async"></div>
-        <figcaption><span class="name row">June &amp; Theo</span><span class="ai">Vocals<abbr class="ai-mark" title="AI-generated image">AI</abbr></span></figcaption>
+        <figcaption><span class="name row">June &amp; Theo</span><span class="ai">Vocals</span></figcaption>
       </figure>
     </div>
     <p class="after">Detroit. More of us downstairs.</p>
@@ -316,7 +320,7 @@ footer .credit{color:var(--ivory)}
 
   <footer>
     <img src="assets/img/logo-ivory.webp" width="800" height="174" alt="Velvet Funk" loading="lazy">
-    <p>AI disclosure: the vocals, some of the instruments and every face, image and video on this site are generated with artificial intelligence. Each face carries a small AI mark where it first appears. On some tracks the guitars are played for real. Lyrics, editing and mixing are done by a person.</p>
+    <p id="ai-disclosure">AI disclosure: the vocals, some of the instruments and every face, image and video on this site are generated with artificial intelligence. On some tracks the guitars are played for real. Lyrics, editing and mixing are done by a person.</p>
     <p class="credit">Written and produced by regius77</p>
     <p>No cookies, no tracking.</p>
   </footer>
