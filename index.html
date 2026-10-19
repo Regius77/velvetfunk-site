@@ -135,6 +135,10 @@ section.block{padding:clamp(64px,10vw,140px) var(--gutter) 0;max-width:1320px;ma
 .cover video.on{opacity:1}
 .cover.blank{display:flex;align-items:flex-end;padding:14px;border:1px solid var(--line);background:#120e0d}
 .cover.blank span{font-size:clamp(34px,4vw,56px);color:var(--ivory-2)}
+.cover.tease::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,7,.72),rgba(10,8,7,0) 55%);pointer-events:none}
+.cover.tease .row,.cover.tease .tease-sub{position:absolute;z-index:2;left:14px;margin:0;color:var(--ivory-2)}
+.cover.tease .row{bottom:12px;font-size:clamp(34px,4vw,56px)}
+.cover.tease .tease-sub{bottom:calc(12px + clamp(34px,4vw,56px));font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
 .drops h3{margin:12px 0 2px;font-size:clamp(22px,2.2vw,30px)}
 .when{font-size:14px;color:var(--ivory-2)}
 .when b{color:var(--ember);font-weight:600}
@@ -349,7 +353,7 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
         <div class="links"><a href="go/sundaycalls/">Pre-save</a></div>
       </li>
       <li>
-        <div class="cover blank"><span class="row">Nov 6</span></div>
+        <div class="cover tease"><img src="assets/img/tease-might-as-well-600.webp" width="600" height="600" alt="Might As Well, cover coming soon" loading="lazy" decoding="async"><p class="tease-sub">New single</p><span class="row">Nov 6</span></div>
         <h3 class="row">Might As Well</h3>
       </li>
       <li>
