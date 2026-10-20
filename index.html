@@ -277,8 +277,8 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
 [hidden]{display:none!important}
 /* hero a due brani (v6, 20/10): la luce cambia stanza. Un solo loop, il testo segue il video */
 .slides{display:grid}
-.slide{grid-area:1/1;align-self:end;opacity:0;visibility:hidden;transition:opacity .35s ease-in,visibility 0s linear .35s}
-.slide.on{opacity:1;visibility:visible;transition:opacity .7s cubic-bezier(.32,.72,0,1) .12s}
+.slide{grid-area:1/1;align-self:end;opacity:0;visibility:hidden;transition:opacity .22s ease-in,visibility 0s linear .22s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .7s cubic-bezier(.32,.72,0,1) .24s}
 .slide .row{font-weight:300;transition:font-weight .9s cubic-bezier(.32,.72,0,1)}
 .slide.on .row{font-weight:800}
 .release .title{margin:10px 0 22px;font-size:clamp(58px,9.4vw,142px)}
@@ -310,10 +310,10 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
   <div class="hv">
     <picture>
       <source id="hero-src-d" media="(min-width:900px) and (min-aspect-ratio:1/1)" srcset="assets/img/hero-sc-d.webp" width="864" height="1080">
-      <img id="hero-img" src="assets/img/hero-sc-m.webp" width="720" height="1568" alt="Mike on a wall phone in a mustard polo, eyes closed." fetchpriority="high" decoding="async">
+      <img id="hero-img" src="assets/img/hero-sc-m.webp" width="720" height="1568" alt="Mike with his eyes closed, a cream phone handset against his cheek." fetchpriority="high" decoding="async">
     </picture>
     <video id="hero-v" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1"
-      data-m="assets/video/hero-duo-m" data-d="assets/video/hero-duo-d" data-cftf="7.208" data-sc="11.417" data-cftf-start="7.542"></video>
+      data-m="assets/video/hero-duo-m" data-d="assets/video/hero-duo-d" data-cftf="6.042" data-sc="10.25" data-cftf-start="6.375"></video>
   </div>
   <header class="hero">
     <img class="logo" src="assets/img/logo-ivory.webp" width="800" height="174" alt="Velvet Funk">
@@ -506,7 +506,7 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
   // Hero a due brani: un solo loop (Sunday Calls -> sera -> Can't Fake The Fire -> alba); titolo e Listen seguono il video.
   var slides = document.querySelectorAll('.slide'), sw = document.querySelectorAll('.switch [data-to]'), hold = document.querySelector('.switch .hold');
   var T_CFTF = +heroV.getAttribute('data-cftf'), T_SC = +heroV.getAttribute('data-sc'), T_IN = +heroV.getAttribute('data-cftf-start');
-  var POSTER = {sc: ['assets/img/hero-sc-m.webp', 'assets/img/hero-sc-d.webp', 'Mike on a wall phone in a mustard polo, eyes closed.'],
+  var POSTER = {sc: ['assets/img/hero-sc-m.webp', 'assets/img/hero-sc-d.webp', 'Mike with his eyes closed, a cream phone handset against his cheek.'],
                 cftf: ['assets/img/hero-cftf-m.webp', 'assets/img/hero-cftf-d.webp', 'Mike in a brown leather jacket and a woman with a magenta afro in a black slip dress at a basement party under red light.']};
   var song = 'sc';
   function setSong(k){
