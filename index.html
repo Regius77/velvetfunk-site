@@ -4,28 +4,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Velvet Funk | Neo soul and R&amp;B</title>
-<meta name="description" content="Velvet Funk, neo soul and R&amp;B from Detroit. Sunday Calls is out now.">
+<meta name="description" content="Velvet Funk, neo soul and R&amp;B from Detroit. Might As Well is out now.">
 <link rel="canonical" href="https://velvetfunk.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Velvet Funk">
 <meta property="og:url" content="https://velvetfunk.com/">
 <meta property="og:title" content="Velvet Funk">
-<meta property="og:description" content="Sunday Calls is out now.">
-<meta property="og:image" content="https://velvetfunk.com/assets/og-sc-1200x630.jpg">
+<meta property="og:description" content="Might As Well is out now.">
+<meta property="og:image" content="https://velvetfunk.com/assets/og-maw-1200x630.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Sunday Calls cover art">
+<meta property="og:image:alt" content="Might As Well cover art">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Velvet Funk">
-<meta name="twitter:description" content="Sunday Calls is out now.">
-<meta name="twitter:image" content="https://velvetfunk.com/assets/og-sc-1200x630.jpg">
-<meta name="twitter:image:alt" content="Sunday Calls cover art">
+<meta name="twitter:description" content="Might As Well is out now.">
+<meta name="twitter:image" content="https://velvetfunk.com/assets/og-maw-1200x630.jpg">
+<meta name="twitter:image:alt" content="Might As Well cover art">
 <meta name="theme-color" content="#0f0b0a">
+<meta name="color-scheme" content="dark">
+<meta property="og:locale" content="en_US">
+<meta property="og:image:type" content="image/jpeg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="preload" href="assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/hero-sc-m.webp" fetchpriority="high" media="not all and (min-width:900px) and (min-aspect-ratio:1/1)">
-<link rel="preload" as="image" href="assets/img/hero-sc-d.webp" fetchpriority="high" media="(min-width:900px) and (min-aspect-ratio:1/1)">
+<link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/hero-maw-m.webp" fetchpriority="high" media="not all and (min-width:900px) and (min-aspect-ratio:1/1)">
+<link rel="preload" as="image" href="assets/img/hero-maw-d.webp" fetchpriority="high" media="(min-width:900px) and (min-aspect-ratio:1/1)">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -33,8 +37,8 @@
   "name": "Velvet Funk",
   "url": "https://velvetfunk.com/",
   "genre": ["Neo soul", "R&B", "Funk"],
-  "description": "Velvet Funk, neo soul and R&B from Detroit. Sunday Calls is out now.",
-  "image": "https://velvetfunk.com/assets/og-sc-1200x630.jpg",
+  "description": "Velvet Funk, neo soul and R&B from Detroit. Might As Well is out now.",
+  "image": "https://velvetfunk.com/assets/og-maw-1200x630.jpg",
   "sameAs": [
     "https://open.spotify.com/artist/1oCgOGxyjqDexacJlm9Scu",
     "https://music.apple.com/us/artist/velvet-funk/1751124918",
@@ -88,7 +92,11 @@ video.plate.on,.hv video.on{opacity:1}
 .plate{object-fit:cover;object-position:0% 50%;will-change:transform;transform-origin:15% 25%}
 .wall::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(to bottom,rgba(15,11,10,0),var(--ink))}
 .lyric{position:absolute;right:var(--gutter);top:42%;max-width:min(46vw,620px);margin:0;font-size:clamp(40px,6.4vw,104px);color:var(--ivory);text-align:right;z-index:2}
-.lyric .key{display:inline-block;font-size:1.5em;color:#fbe9e2}
+.lyric .key{display:inline-block;font-size:1.5em;color:#F0AF76}
+/* MAW wall (rooftop, Mike in the middle of the frame): on portrait screens the frame is centred, not left-anchored */
+@media (max-aspect-ratio:4/5){.wall .plate{object-position:50% 50%;transform-origin:50% 72%}}
+/* MAW wall on phones: smaller lyric block, low and clear of Mike's feet (scroll zoom anchored at the feet, 72%; 10vw keeps 56 px+ from the sole with a 34 px home bar), and a taller foot gradient that is near ink where the frame ends (v3: the mint set paper is faded out in wall-p itself) */
+@media (max-width:640px){.walk .lyric{bottom:calc(72px + env(safe-area-inset-bottom));font-size:clamp(34px,10vw,64px)}.wall::after{height:48%;background:linear-gradient(to bottom,rgba(15,11,10,0),rgba(15,11,10,.45) 28%,rgba(15,11,10,.92) 46%,var(--ink) 60%)}}
 
 .hero{position:absolute;top:0;left:0;right:0;height:100svh;z-index:3;padding:calc(env(safe-area-inset-top) + 22px) var(--gutter) calc(env(safe-area-inset-bottom) + 28px);display:flex;flex-direction:column;justify-content:space-between;pointer-events:none;overflow:hidden}
 .hero > *{pointer-events:auto}
@@ -96,7 +104,7 @@ video.plate.on,.hv video.on{opacity:1}
 .release{max-width:940px;position:relative}
 .release::before{content:"";position:absolute;inset:-60px calc(-1 * var(--gutter)) -40px calc(-1 * var(--gutter));background:radial-gradient(ellipse at 20% 70%,rgba(5,6,9,.62),rgba(5,6,9,0) 68%);z-index:-1;pointer-events:none}
 .release h1{margin:10px 0 22px;font-size:clamp(58px,9.4vw,142px)}
-.release h1 .key{display:block;font-size:1.62em;margin-top:.02em;color:#fbe9e2}
+.release h1 .key{display:block;font-size:1.62em;margin-top:.02em;color:#F0AF76}
 
 .listen{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;font-stretch:88%;font-size:17px;letter-spacing:.06em;text-transform:uppercase;background:var(--ivory);color:var(--ink);padding:15px 30px;border-radius:999px;min-height:48px;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
@@ -152,7 +160,7 @@ section.block{padding:clamp(64px,10vw,140px) var(--gutter) 0;max-width:1320px;ma
 .elsewhere a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;text-decoration:none}
 .elsewhere .row{font-size:clamp(34px,5vw,64px)}
 .elsewhere .handle{font-size:14px;color:var(--ivory-2);text-align:right}
-.elsewhere a:hover .row{color:#fbe9e2}
+.elsewhere a:hover .row{color:#F0AF76}
 
 .mail h2{margin-bottom:clamp(48px,5vw,64px)}
 .mail form{display:flex;gap:10px;flex-wrap:wrap;max-width:560px}
@@ -282,13 +290,16 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
 .slide .row{font-weight:300;transition:font-weight .9s cubic-bezier(.32,.72,0,1)}
 .slide.on .row{font-weight:800}
 .release .title{margin:10px 0 22px;font-size:clamp(58px,9.4vw,142px)}
-.release .title .key{display:block;font-size:1.62em;margin-top:.02em;color:#fbe9e2}
-.release h1 .key.hl,.release .title .key.hl{color:#efe7dc}
+.release .title .key{display:block;font-size:1.62em;margin-top:.02em;color:#F0AF76}
+.release h1 .key.hl,.release .title .key.hl{color:#F0AF76}
 .switch{display:flex;flex-wrap:wrap;align-items:center;gap:0 18px;margin-top:14px}
 .switch button{appearance:none;background:none;border:0;padding:10px 0;min-height:44px;font:inherit;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-2);cursor:pointer;text-decoration:underline;text-underline-offset:6px;text-decoration-color:transparent;transition:color .3s,text-decoration-color .3s}
 .switch button[data-to][aria-pressed=true]{color:var(--ivory);text-decoration-color:var(--ivory)}
 .switch button:hover{color:var(--ivory)}
 .switch .hold{margin-left:auto;letter-spacing:.1em;opacity:.8}
+/* hero a tre: i tre titoli su una riga fino a 375 px, Pausa sotto */
+@media (max-width:480px){.switch{gap:0 12px}.switch button{font-size:11px;letter-spacing:.08em}.switch .hold{flex-basis:100%;text-align:left}}
+@media (max-width:379px){.switch{gap:0 10px}.switch button{letter-spacing:.04em}}
 .hv picture{position:absolute;inset:0}
 .hv img{transition:opacity .4s}
 @media (min-width:900px) and (min-aspect-ratio:1/1){
@@ -302,7 +313,37 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
 /* link al catalogo (19/10) */
 .all-music{margin:clamp(28px,4vw,48px) 0 0}
 .all-music a{font-size:clamp(28px,3.4vw,44px);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:4px}
-.all-music a:hover{color:#fbe9e2}
+.all-music a:hover{color:#F0AF76}
+/* critica 01/11: All music si legge come link, non come titolo orfano; spazio sotto la barra Listen; un link per riga sulle card del telefono */
+.all-music a{font-size:clamp(18px,1.6vw,22px);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.all-music a::after{content:" \2192"}
+body{padding-bottom:calc(60px + env(safe-area-inset-bottom))}
+@media (max-width:600px){.links{flex-direction:column;align-items:flex-start}}
+
+/* ---------- premium 01/11 (audit _lavoro/premium_01-11): micro-tipografia, stati, focus, motion ridotto. Nessun cambio di testo, font, colori di marca o layout ---------- */
+:root{color-scheme:dark}
+html{-webkit-tap-highlight-color:transparent}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--ember);color:var(--ivory)}
+/* focus: anello avorio con un alone d'inchiostro, leggibile anche sopra il video chiaro */
+a:focus-visible,button:focus-visible{outline:2px solid var(--ivory);outline-offset:2px;box-shadow:0 0 0 6px rgba(15,11,10,.85)}
+/* hover del bottone: da #f6f4f1 a #fff non si vedeva (1,09:1); il rosa della parola chiave si', e resta 16:1 sull'inchiostro */
+@media (hover:hover){.btn:hover{background:#F0AF76}}
+/* active per i link testuali, ora che il lampo grigio del tap e' spento */
+.links a:active,.all-music a:active,.elsewhere a:active .row,.switch button:active{opacity:.7}
+/* tocco: i link sotto le copertine passano da 32 a 44 px di altezza solo sui telefoni */
+@media (pointer:coarse){.links{row-gap:0}.links a{min-height:44px}}
+/* badge AI: stessa resa, area di tocco 44x44 */
+.hero-mark::after{content:"";position:absolute;inset:-13px -10px}
+/* titoli di sezione: distanza proporzionata al corpo (era 40 px fissi: stretta a 96 px, larga a 44 px) */
+.block h2{margin-bottom:clamp(30px,3.6vw,52px)}
+@media (prefers-reduced-motion:reduce){
+  .btn,.crew img,.cover img{transition:none}
+  .btn:active{transform:none}
+  .crew figure:hover img,.drops li:hover .cover img{transform:none}
+}
 </style>
 </head>
 <body>
@@ -310,19 +351,26 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
 <section class="top" aria-label="Velvet Funk">
   <div class="hv">
     <picture>
-      <source id="hero-src-d" media="(min-width:900px) and (min-aspect-ratio:1/1)" srcset="assets/img/hero-sc-d.webp" width="864" height="1080">
-      <img id="hero-img" src="assets/img/hero-sc-m.webp" width="720" height="1568" alt="Mike in a doorway on a cream wall phone, the coiled cord across the frame." fetchpriority="high" decoding="async">
+      <source id="hero-src-d" media="(min-width:900px) and (min-aspect-ratio:1/1)" srcset="assets/img/hero-maw-d.webp" width="864" height="1080">
+      <img id="hero-img" src="assets/img/hero-maw-m.webp" width="720" height="1568" alt="Mike leaning on a porch pillar at night, a glass in his hand, the street dark behind him." fetchpriority="high" decoding="async">
     </picture>
     <video id="hero-v" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1"
-      data-m="assets/video/hero-duo-m" data-d="assets/video/hero-duo-d" data-cftf="5.708" data-sc="10.083" data-cftf-start="6.042"></video>
+      data-m="assets/video/hero-trio-m" data-d="assets/video/hero-trio-d" data-sc="4.792" data-cftf="10.417" data-maw="14.75" data-sc-start="5.0" data-cftf-start="10.75"></video>
   </div>
   <header class="hero">
     <img class="logo" src="assets/img/logo-ivory.webp" width="800" height="174" alt="Velvet Funk">
     <div class="release">
       <div class="slides">
-        <div class="slide on" data-song="sc">
+        <div class="slide on" data-song="maw">
           <span class="label">New single</span>
-          <h1 class="row">Sunday <span class="key hl">calls</span></h1>
+          <h1 class="row">Might as <span class="key hl">well</span></h1>
+          <div class="listen">
+            <a class="btn" href="go/mightaswell/">Listen</a>
+          </div>
+        </div>
+        <div class="slide" data-song="sc">
+          <span class="label">Out now</span>
+          <p class="row title">Sunday <span class="key hl">calls</span></p>
           <div class="listen">
             <a class="btn" href="go/sundaycalls/">Listen</a>
           </div>
@@ -343,7 +391,8 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
         </div>
       </div>
       <div class="switch" role="group" aria-label="Choose a song">
-        <button type="button" data-to="sc" aria-pressed="true">Sunday Calls</button>
+        <button type="button" data-to="maw" aria-pressed="true">Might As Well</button>
+        <button type="button" data-to="sc" aria-pressed="false">Sunday Calls</button>
         <button type="button" data-to="cftf" aria-pressed="false">Can't Fake The Fire</button>
         <button type="button" class="hold" hidden aria-pressed="false">Pause</button>
       </div>
@@ -356,12 +405,12 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
   <div class="stage" id="stage">
     <div class="layer wall">
       <picture>
-        <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/wall-portrait.webp">
-        <img class="plate" id="wall" src="assets/img/wall-2000.webp" alt="" loading="lazy" decoding="async">
+        <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/wall-portrait.webp" width="820" height="1038">
+        <img class="plate" id="wall" src="assets/img/wall-2000.webp" width="1920" height="1086" alt="Mike in a dark green suit walking away across a sunlit rooftop, toward the brick buildings of the city." loading="lazy" decoding="async">
       </picture>
-      <video class="plate" id="wall-v" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-l="assets/video/wall-l" data-p="assets/video/wall-p"></video>
+      <video class="plate" id="wall-v" autoplay muted playsinline data-once preload="metadata" disablepictureinpicture aria-hidden="true" tabindex="-1" data-l="assets/video/wall-l" data-p="assets/video/wall-p"></video>
     </div>
-    <p class="lyric row" aria-hidden="true">You can lie<br>with lips,<br>but not with <span class="key">hips</span></p>
+    <p class="lyric row" aria-hidden="true">Grab a chair<br>on the way<br><span class="key">out</span></p>
   </div>
 </section>
 
@@ -385,20 +434,22 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
     <h2 class="row" id="h-releases">Releases</h2>
     <ul class="drops">
       <li>
-        <div class="cover"><img src="assets/img/cover-sunday-calls-1200.webp" width="1200" height="1200" alt="Sunday Calls cover" loading="lazy" decoding="async"></div>
+        <div class="cover"><img src="assets/img/cover-might-as-well-1200.webp" width="1200" height="1200" alt="Might As Well cover" loading="lazy" decoding="async"></div>
+        <h3 class="row">Might As Well</h3>
+        <span class="when"><b>Out now</b></span>
+        <div class="links"><a href="go/mightaswell/">Listen</a></div>
+      </li>
+      <li>
+        <div class="cover"><img src="assets/img/cover-sunday-calls-1200.webp" srcset="assets/img/cover-sunday-calls.webp 560w, assets/img/cover-sunday-calls-1200.webp 1200w" sizes="(min-width:900px) 25vw, calc(50vw - 24px)" width="1200" height="1200" alt="Sunday Calls cover" loading="lazy" decoding="async"></div>
         <h3 class="row">Sunday Calls</h3>
         <span class="when"><b>Out now</b></span>
         <div class="links"><a href="go/sundaycalls/">Listen</a></div>
       </li>
       <li>
-        <div class="cover"><img src="assets/img/cover-cftf.webp" width="1200" height="1200" alt="Can't Fake The Fire cover" loading="lazy" decoding="async"></div>
+        <div class="cover"><img src="assets/img/cover-cftf.webp" srcset="assets/img/cant-fake-the-fire-560.webp 560w, assets/img/cover-cftf.webp 1200w" sizes="(min-width:900px) 25vw, calc(50vw - 24px)" width="1200" height="1200" alt="Can't Fake The Fire cover" loading="lazy" decoding="async"></div>
         <h3 class="row">Can't Fake The Fire</h3>
         <span class="when"><b>Out now</b></span>
         <div class="links"><a href="go/ytm/">YouTube Music</a><a href="go/spotify/">Spotify</a><a href="go/apple/">Apple Music</a><a href="go/lyric/">Lyric video</a></div>
-      </li>
-      <li>
-        <div class="cover tease"><img src="assets/img/tease-might-as-well-600.webp" width="600" height="600" alt="Might As Well, cover coming soon" loading="lazy" decoding="async"><p class="tease-sub">New single</p><span class="row">Nov 6</span></div>
-        <h3 class="row">Might As Well</h3>
       </li>
       <li>
         <div class="cover"><img src="assets/img/cover-sweet-escape.webp" width="560" height="560" alt="Sweet Escape cover" loading="lazy" decoding="async"></div>
@@ -436,9 +487,9 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
 </main>
 
 <div class="bar" id="bar" aria-hidden="true">
-  <img src="assets/img/cover-sc-96.webp" width="44" height="44" alt="">
-  <div class="t">Sunday Calls</div>
-  <a class="btn" href="go/sundaycalls/" tabindex="-1">Listen</a>
+  <img src="assets/img/cover-maw-96.webp" width="44" height="44" alt="" decoding="async">
+  <div class="t">Might As Well</div>
+  <a class="btn" href="go/mightaswell/" tabindex="-1">Listen</a>
 </div>
 
 <script>
@@ -461,9 +512,12 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
     TYPES.forEach(function(t){ var s = document.createElement('source'); s.src = base + '.' + t[0]; s.type = t[1]; v.appendChild(s); });
     v.lastChild.addEventListener('error', function(){ v.classList.remove('on'); v.setAttribute('data-bad', ''); });
     v.addEventListener('playing', function(){ v.classList.add('on'); if (!v.__vis) v.pause(); });
+    // data-once (the wall): plays once and holds its last frame; a new source (portrait/landscape switch) plays once again
+    v.__done = false;
+    if (v.hasAttribute('data-once')) v.onended = function(){ v.__done = true; };
     v.load();
   }
-  function play(v){ v.__vis = true; if (v.__held) return; if (v.getAttribute('data-base') && !v.hasAttribute('data-bad') && v.paused){ var r = v.play(); if (r && r.catch) r.catch(function(){}); } }
+  function play(v){ v.__vis = true; if (v.__held || v.__done) return; if (v.getAttribute('data-base') && !v.hasAttribute('data-bad') && v.paused){ var r = v.play(); if (r && r.catch) r.catch(function(){}); } }
   function pause(v){ v.__vis = false; if (!v.paused) v.pause(); }
   // Each loop is fetched when its section comes near the screen and plays only while it is on screen.
   function watch(el, v, base, poster, margin){
@@ -504,19 +558,21 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
     if (walk) watch(walk, wallV, function(){ return wallV.getAttribute(portrait.matches ? 'data-p' : 'data-l'); }, function(){ return wall.complete ? wall.currentSrc : ''; }, '0px 0px -25% 0px');
   }
 
-  // Hero a due brani: un solo loop (Sunday Calls -> sera -> Can't Fake The Fire -> alba); titolo e Listen seguono il video.
+  // Hero a tre brani: un solo loop (Might As Well -> Sunday Calls -> Can't Fake The Fire -> Might As Well); titolo e Listen seguono il video.
   var slides = document.querySelectorAll('.slide'), sw = document.querySelectorAll('.switch [data-to]'), hold = document.querySelector('.switch .hold');
-  var T_CFTF = +heroV.getAttribute('data-cftf'), T_SC = +heroV.getAttribute('data-sc'), T_IN = +heroV.getAttribute('data-cftf-start');
-  var POSTER = {sc: ['assets/img/hero-sc-m.webp', 'assets/img/hero-sc-d.webp', 'Mike in a doorway on a cream wall phone, the coiled cord across the frame.'],
+  var T_SC = +heroV.getAttribute('data-sc'), T_CFTF = +heroV.getAttribute('data-cftf'), T_MAW = +heroV.getAttribute('data-maw');
+  var T_IN = {maw: 0, sc: +heroV.getAttribute('data-sc-start'), cftf: +heroV.getAttribute('data-cftf-start')};
+  var POSTER = {maw: ['assets/img/hero-maw-m.webp', 'assets/img/hero-maw-d.webp', 'Mike leaning on a porch pillar at night, a glass in his hand, the street dark behind him.'],
+                sc: ['assets/img/hero-sc-m.webp', 'assets/img/hero-sc-d.webp', 'Mike in a doorway on a cream wall phone, the coiled cord across the frame.'],
                 cftf: ['assets/img/hero-cftf-m.webp', 'assets/img/hero-cftf-d.webp', 'Mike in a brown leather jacket and a woman with a magenta afro in a black slip dress at a basement party under red light.']};
-  var song = 'sc';
+  var song = 'maw';
   function setSong(k){
     if (k === song) return; song = k;
     slides.forEach(function(x){ x.classList.toggle('on', x.getAttribute('data-song') === k); });
     sw.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-to') === k); });
     document.querySelectorAll('[data-listen]').forEach(function(b){ var ul = document.getElementById(b.getAttribute('aria-controls')); ul.classList.remove('open'); b.setAttribute('aria-expanded', false); });
   }
-  function songAt(t){ return (t >= T_CFTF && t < T_SC) ? 'cftf' : 'sc'; }
+  function songAt(t){ return (t >= T_SC && t < T_CFTF) ? 'sc' : (t >= T_CFTF && t < T_MAW) ? 'cftf' : 'maw'; }
   function videoOn(){ return heroV.classList.contains('on') && !heroV.hasAttribute('data-bad'); }
   function poster(k){ heroImg.src = POSTER[k][0]; heroSrcD.srcset = POSTER[k][1]; heroImg.alt = POSTER[k][2]; }
   // il testo legge il fotogramma mostrato (requestVideoFrameCallback), altrimenti timeupdate
@@ -531,7 +587,7 @@ a.ai-mark:hover{color:var(--ivory);border-color:var(--ivory)}
   sw.forEach(function(b){
     b.addEventListener('click', function(){
       var k = b.getAttribute('data-to');
-      if (videoOn()){ heroV.currentTime = k === 'sc' ? 0 : T_IN; setSong(k); }
+      if (videoOn()){ heroV.currentTime = T_IN[k]; setSong(k); }
       else { poster(k); setSong(k); }
     });
   });
