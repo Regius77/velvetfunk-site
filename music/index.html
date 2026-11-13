@@ -69,6 +69,18 @@ h1.row{margin:0 0 clamp(20px,3vw,36px);font-size:clamp(52px,9vw,128px)}
 .wall h3,.wall h4{margin:10px 0 2px;font-size:clamp(18px,1.8vw,24px);line-height:.95}
 .wall .sub{font-size:13px;color:var(--ivory-2)}
 .wall a:hover h3,.wall a:hover h4{color:#fbe9e2}
+.wall li.album summary{list-style:none;cursor:pointer}
+.wall li.album summary::-webkit-details-marker{display:none}
+.wall li.album summary:hover h4{color:#fbe9e2}
+.wall li.album summary:focus-visible{outline:2px solid var(--ivory);outline-offset:4px}
+.wall li.album:has(details[open]){grid-column:1/-1}
+.wall li.album details[open]{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:clamp(16px,3vw,40px);align-items:start}
+@media(max-width:559px){.wall li.album details[open]{grid-template-columns:1fr}}
+.tracks{margin:0;padding:0 0 0 1.4em;columns:2 220px;column-gap:32px;font-size:16px;line-height:1.35;color:var(--ivory-2)}
+.tracks li{break-inside:avoid;padding:7px 0;border-bottom:1px solid var(--line)}
+.tracks a{display:inline;color:var(--ivory)}
+.tracks a:hover{color:#fbe9e2}
+.tracks .ext{font-size:12px;color:var(--ivory-2)}
 .wall .soon{color:var(--ember)}
 /* song page */
 .song{display:grid;gap:clamp(24px,4vw,56px);grid-template-columns:1fr}
@@ -172,7 +184,7 @@ h2.archive{margin-bottom:10px}
   </ul>
 </section>
 <h2 class="row archive" id="h-all">All music</h2>
-<p class="lede">129 songs from 2024 to 2026, newest first.</p>
+<p class="lede">8 albums and 70 singles from 2024 to 2026, newest first.</p>
 <ul class="years" aria-label="Filter by year">
   <li><a href="/music/" data-year="all" aria-pressed="true">All</a></li>
   <li><a href="#y2026" data-year="2026" aria-pressed="false">2026</a></li>
@@ -182,10 +194,9 @@ h2.archive{margin-bottom:10px}
 </ul>
 
 <section class="yr" id="y2026" data-year="2026" aria-labelledby="h2026">
-  <h3 class="row" id="h2026">2026<small>25 songs</small></h3>
+  <h3 class="row" id="h2026">2026<small>2 albums, 10 singles</small></h3>
   <ul class="wall">
-  
-    <li>
+  <li>
     <a href="/songs/cant-fake-the-fire/">
       <div class="cover"><img src="/assets/img/cant-fake-the-fire-320.webp" width="320" height="320" alt="Can&#39;t Fake The Fire cover" loading="lazy" decoding="async"></div>
       
@@ -225,93 +236,28 @@ h2.archive{margin-bottom:10px}
       <span class="sub">June 8, 2026 <span class="ext" aria-hidden="true">↗</span></span>
     </a>
     </li>
-    <li>
-    <a href="/go/midnight-groceries/ytm/" aria-label="Midnight Groceries on YouTube Music">
-      <div class="cover"><img src="/assets/covers/midnight-groceries-320.webp" width="320" height="320" alt="Midnight Groceries cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Midnight Groceries</h4>
-      <span class="sub">May 7, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/velvet-morning/ytm/" aria-label="Velvet Morning on YouTube Music">
+    <li class="album">
+    <details>
+    <summary>
       <div class="cover"><img src="/assets/covers/midnight-groceries-320.webp" width="320" height="320" alt="Home Is a Feeling album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Velvet Morning</h4>
-      <span class="sub">May 7, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/keep-the-change/ytm/" aria-label="Keep The Change on YouTube Music">
-      <div class="cover"><img src="/assets/covers/midnight-groceries-320.webp" width="320" height="320" alt="Home Is a Feeling album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Keep The Change</h4>
-      <span class="sub">May 7, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/wrong-kind-of-right/ytm/" aria-label="Wrong Kind of Right on YouTube Music">
-      <div class="cover"><img src="/assets/covers/midnight-groceries-320.webp" width="320" height="320" alt="Home Is a Feeling album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Wrong Kind of Right</h4>
-      <span class="sub">May 7, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/purple-static/ytm/" aria-label="Purple Static on YouTube Music">
-      <div class="cover"><img src="/assets/covers/midnight-groceries-320.webp" width="320" height="320" alt="Home Is a Feeling album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Purple Static</h4>
-      <span class="sub">May 7, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/thursday-night-friend/ytm/" aria-label="Thursday Night Friend on YouTube Music">
-      <div class="cover"><img src="/assets/covers/midnight-groceries-320.webp" width="320" height="320" alt="Home Is a Feeling album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Thursday Night Friend</h4>
-      <span class="sub">May 7, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/third-beer-wisdom/ytm/" aria-label="Third Beer Wisdom on YouTube Music">
-      <div class="cover"><img src="/assets/covers/midnight-groceries-320.webp" width="320" height="320" alt="Home Is a Feeling album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Third Beer Wisdom</h4>
-      <span class="sub">May 7, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/taxi-rain/ytm/" aria-label="Taxi Rain on YouTube Music">
-      <div class="cover"><img src="/assets/covers/midnight-groceries-320.webp" width="320" height="320" alt="Home Is a Feeling album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Taxi Rain</h4>
-      <span class="sub">May 7, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/home-is-a-feeling/ytm/" aria-label="Home Is a Feeling on YouTube Music">
-      <div class="cover"><img src="/assets/covers/midnight-groceries-320.webp" width="320" height="320" alt="Home Is a Feeling album cover" loading="lazy" decoding="async"></div>
-      
       <h4 class="row">Home Is a Feeling</h4>
-      <span class="sub">May 7, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/sunday-reset/ytm/" aria-label="Sunday Reset on YouTube Music">
-      <div class="cover"><img src="/assets/covers/midnight-groceries-320.webp" width="320" height="320" alt="Home Is a Feeling album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Sunday Reset</h4>
-      <span class="sub">May 7, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/your-song-came-on/ytm/" aria-label="Your Song Came On on YouTube Music">
-      <div class="cover"><img src="/assets/covers/midnight-groceries-320.webp" width="320" height="320" alt="Home Is a Feeling album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Your Song Came On</h4>
-      <span class="sub">May 7, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
+      <span class="sub">Album · 12 songs · May 7, 2026</span>
+    </summary>
+    <ol class="tracks">
+      <li><a href="/go/midnight-groceries/ytm/">Midnight Groceries <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/velvet-morning/ytm/">Velvet Morning <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/keep-the-change/ytm/">Keep The Change <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/wrong-kind-of-right/ytm/">Wrong Kind of Right <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/purple-static/ytm/">Purple Static <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/thursday-night-friend/ytm/">Thursday Night Friend <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/third-beer-wisdom/ytm/">Third Beer Wisdom <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/taxi-rain/ytm/">Taxi Rain <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/home-is-a-feeling/ytm/">Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/sunday-reset/ytm/">Sunday Reset <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/your-song-came-on/ytm/">Your Song Came On <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/last-call-love/ytm/">Last Call Love <span class="ext" aria-hidden="true">↗</span></a></li>
+    </ol>
+    </details>
     </li>
     <li>
     <a href="/go/taxi-confessions/ytm/" aria-label="Taxi Confessions on YouTube Music">
@@ -329,37 +275,19 @@ h2.archive{margin-bottom:10px}
       <span class="sub">March 22, 2026 <span class="ext" aria-hidden="true">↗</span></span>
     </a>
     </li>
-    <li>
-    <a href="/go/last-call-love/ytm/" aria-label="Last Call Love on YouTube Music">
-      <div class="cover"><img src="/assets/covers/last-call-love-320.webp" width="320" height="320" alt="Last Call Love cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Last Call Love</h4>
-      <span class="sub">March 8, 2026 · Home Is a Feeling <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/city-on-low/ytm/" aria-label="City on Low on YouTube Music">
-      <div class="cover"><img src="/assets/covers/city-on-low-320.webp" width="320" height="320" alt="City on Low cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">City on Low</h4>
-      <span class="sub">February 20, 2026 · Night Trilogy <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/lights-still-on/ytm/" aria-label="Lights Still On on YouTube Music">
+    <li class="album">
+    <details>
+    <summary>
       <div class="cover"><img src="/assets/covers/city-on-low-320.webp" width="320" height="320" alt="Night Trilogy album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Lights Still On</h4>
-      <span class="sub">February 20, 2026 · Night Trilogy <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/after-midnight/ytm/" aria-label="After Midnight on YouTube Music">
-      <div class="cover"><img src="/assets/covers/city-on-low-320.webp" width="320" height="320" alt="Night Trilogy album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">After Midnight</h4>
-      <span class="sub">February 20, 2026 · Night Trilogy <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
+      <h4 class="row">Night Trilogy</h4>
+      <span class="sub">Album · 3 songs · February 20, 2026</span>
+    </summary>
+    <ol class="tracks">
+      <li><a href="/go/city-on-low/ytm/">City on Low <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/lights-still-on/ytm/">Lights Still On <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/after-midnight/ytm/">After Midnight <span class="ext" aria-hidden="true">↗</span></a></li>
+    </ol>
+    </details>
     </li>
     <li>
     <a href="/go/let-it-fall/ytm/" aria-label="Let It Fall on YouTube Music">
@@ -389,10 +317,9 @@ h2.archive{margin-bottom:10px}
 </section>
 
 <section class="yr" id="y2025" data-year="2025" aria-labelledby="h2025">
-  <h3 class="row" id="h2025">2025<small>77 songs</small></h3>
+  <h3 class="row" id="h2025">2025<small>6 albums, 33 singles</small></h3>
   <ul class="wall">
-  
-    <li>
+  <li>
     <a href="/go/midnight-snowlight/ytm/" aria-label="Midnight Snowlight on YouTube Music">
       <div class="cover"><img src="/assets/covers/midnight-snowlight-320.webp" width="320" height="320" alt="Midnight Snowlight cover" loading="lazy" decoding="async"></div>
       
@@ -408,45 +335,26 @@ h2.archive{margin-bottom:10px}
       <span class="sub">November 28, 2025 <span class="ext" aria-hidden="true">↗</span></span>
     </a>
     </li>
-    <li>
-    <a href="/go/echo-in-september/ytm/" aria-label="Echo in September on YouTube Music">
-      <div class="cover"><img src="/assets/covers/echo-in-september-320.webp" width="320" height="320" alt="Echo in September cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Echo in September</h4>
-      <span class="sub">October 24, 2025 · Endless Play <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/slow-fire/ytm/" aria-label="Slow Fire on YouTube Music">
+    <li class="album">
+    <details>
+    <summary>
       <div class="cover"><img src="/assets/covers/echo-in-september-320.webp" width="320" height="320" alt="Endless Play album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Slow Fire</h4>
-      <span class="sub">October 24, 2025 · Endless Play <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/mute-button/ytm/" aria-label="Mute Button on YouTube Music">
-      <div class="cover"><img src="/assets/covers/echo-in-september-320.webp" width="320" height="320" alt="Endless Play album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Mute Button</h4>
-      <span class="sub">October 24, 2025 · Endless Play <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/autumn-groove/ytm/" aria-label="Autumn Groove on YouTube Music">
-      <div class="cover"><img src="/assets/covers/echo-in-september-320.webp" width="320" height="320" alt="Endless Play album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Autumn Groove</h4>
-      <span class="sub">October 24, 2025 · Endless Play <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/between-want-mean/ytm/" aria-label="Between Want &amp; Mean on YouTube Music">
-      <div class="cover"><img src="/assets/covers/echo-in-september-320.webp" width="320" height="320" alt="Endless Play album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Between Want &amp; Mean</h4>
-      <span class="sub">October 24, 2025 · Endless Play <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
+      <h4 class="row">Endless Play</h4>
+      <span class="sub">Album · 10 songs · October 24, 2025</span>
+    </summary>
+    <ol class="tracks">
+      <li><a href="/go/echo-in-september/ytm/">Echo in September <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/slow-fire/ytm/">Slow Fire <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/mute-button/ytm/">Mute Button <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/autumn-groove/ytm/">Autumn Groove <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/between-want-mean/ytm/">Between Want &amp; Mean <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/unfinished-dream/ytm/">Unfinished Dream <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/ghost-frequency/ytm/">Ghost Frequency <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/glue-season/ytm/">Glue Season <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/loop-eternal/ytm/">Loop Eternal <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/falling-in-replay/ytm/">Falling in Replay <span class="ext" aria-hidden="true">↗</span></a></li>
+    </ol>
+    </details>
     </li>
     <li>
     <a href="/go/velvet-funk-bonus-track/ytm/" aria-label="Velvet Funk Bonus Track on YouTube Music">
@@ -457,46 +365,6 @@ h2.archive{margin-bottom:10px}
     </a>
     </li>
     <li>
-    <a href="/go/unfinished-dream/ytm/" aria-label="Unfinished Dream on YouTube Music">
-      <div class="cover"><img src="/assets/covers/echo-in-september-320.webp" width="320" height="320" alt="Endless Play album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Unfinished Dream</h4>
-      <span class="sub">October 24, 2025 · Endless Play <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/ghost-frequency/ytm/" aria-label="Ghost Frequency on YouTube Music">
-      <div class="cover"><img src="/assets/covers/echo-in-september-320.webp" width="320" height="320" alt="Endless Play album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Ghost Frequency</h4>
-      <span class="sub">October 24, 2025 · Endless Play <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/glue-season/ytm/" aria-label="Glue Season on YouTube Music">
-      <div class="cover"><img src="/assets/covers/echo-in-september-320.webp" width="320" height="320" alt="Endless Play album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Glue Season</h4>
-      <span class="sub">October 24, 2025 · Endless Play <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/loop-eternal/ytm/" aria-label="Loop Eternal on YouTube Music">
-      <div class="cover"><img src="/assets/covers/echo-in-september-320.webp" width="320" height="320" alt="Endless Play album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Loop Eternal</h4>
-      <span class="sub">October 24, 2025 · Endless Play <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/falling-in-replay/ytm/" aria-label="Falling in Replay on YouTube Music">
-      <div class="cover"><img src="/assets/covers/falling-in-replay-320.webp" width="320" height="320" alt="Falling in Replay cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Falling in Replay</h4>
-      <span class="sub">September 21, 2025 · Endless Play <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
     <a href="/go/lemonade/ytm/" aria-label="Lemonade on YouTube Music">
       <div class="cover"><img src="/assets/covers/lemonade-320.webp" width="320" height="320" alt="Lemonade cover" loading="lazy" decoding="async"></div>
       
@@ -504,13 +372,28 @@ h2.archive{margin-bottom:10px}
       <span class="sub">August 30, 2025 <span class="ext" aria-hidden="true">↗</span></span>
     </a>
     </li>
-    <li>
-    <a href="/go/midnight-rush/ytm/" aria-label="Midnight Rush on YouTube Music">
-      <div class="cover"><img src="/assets/covers/midnight-rush-320.webp" width="320" height="320" alt="Midnight Rush cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Midnight Rush</h4>
-      <span class="sub">August 17, 2025 · Nights That Never End <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
+    <li class="album">
+    <details>
+    <summary>
+      <div class="cover"><img src="/assets/covers/midnight-rush-320.webp" width="320" height="320" alt="Nights That Never End album cover" loading="lazy" decoding="async"></div>
+      <h4 class="row">Nights That Never End</h4>
+      <span class="sub">Album · 12 songs · August 17, 2025</span>
+    </summary>
+    <ol class="tracks">
+      <li><a href="/go/midnight-rush/ytm/">Midnight Rush <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/one-time-only/ytm/">One Time Only <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/cant-help-the-sound/ytm/">Can’t Help the Sound <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/echo-on-the-beach/ytm/">Echo on the Beach <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/hot-sand-cold-drink/ytm/">Hot Sand, Cold Drink <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/t-shirt-weather/ytm/">T-Shirt Weather <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/sunset-radio/ytm/">Sunset Radio <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/songs/wrong-side-of-the-sunset/">Wrong Side of the Sunset</a></li>
+      <li><a href="/go/fruit-juice-moonlight/ytm/">Fruit Juice &amp; Moonlight <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/nights-that-never-end/ytm/">Nights That Never End <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/feel-the-way/ytm/">Feel the Way <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/golden-hour-talkin/ytm/">Golden Hour Talkin’ <span class="ext" aria-hidden="true">↗</span></a></li>
+    </ol>
+    </details>
     </li>
     <li>
     <a href="/songs/real-time-only/">
@@ -560,29 +443,19 @@ h2.archive{margin-bottom:10px}
       <span class="sub">July 6, 2025 <span class="ext" aria-hidden="true">↗</span></span>
     </a>
     </li>
-    <li>
-    <a href="/go/gimme-your-number/ytm/" aria-label="Gimme Your Number on YouTube Music">
-      <div class="cover"><img src="/assets/covers/gimme-your-number-320.webp" width="320" height="320" alt="Gimme Your Number cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Gimme Your Number</h4>
-      <span class="sub">June 29, 2025 · Late Love <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/slide/ytm/" aria-label="Slide on YouTube Music">
+    <li class="album">
+    <details>
+    <summary>
       <div class="cover"><img src="/assets/covers/gimme-your-number-320.webp" width="320" height="320" alt="Late Love album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Slide</h4>
-      <span class="sub">June 29, 2025 · Late Love <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/late-love/ytm/" aria-label="Late Love on YouTube Music">
-      <div class="cover"><img src="/assets/covers/gimme-your-number-320.webp" width="320" height="320" alt="Late Love album cover" loading="lazy" decoding="async"></div>
-      
       <h4 class="row">Late Love</h4>
-      <span class="sub">June 29, 2025 · Late Love <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
+      <span class="sub">Album · 3 songs · June 29, 2025</span>
+    </summary>
+    <ol class="tracks">
+      <li><a href="/go/gimme-your-number/ytm/">Gimme Your Number <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/slide/ytm/">Slide <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/late-love/ytm/">Late Love <span class="ext" aria-hidden="true">↗</span></a></li>
+    </ol>
+    </details>
     </li>
     <li>
     <a href="/go/funk-me/ytm/" aria-label="Funk Me on YouTube Music">
@@ -590,86 +463,6 @@ h2.archive{margin-bottom:10px}
       
       <h4 class="row">Funk Me</h4>
       <span class="sub">June 29, 2025 <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/one-time-only/ytm/" aria-label="One Time Only on YouTube Music">
-      <div class="cover"><img src="/assets/covers/one-time-only-320.webp" width="320" height="320" alt="One Time Only cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">One Time Only</h4>
-      <span class="sub">June 20, 2025 · Nights That Never End <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/cant-help-the-sound/ytm/" aria-label="Can’t Help the Sound on YouTube Music">
-      <div class="cover"><img src="/assets/covers/one-time-only-320.webp" width="320" height="320" alt="Nights That Never End album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Can’t Help the Sound</h4>
-      <span class="sub">June 20, 2025 · Nights That Never End <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/echo-on-the-beach/ytm/" aria-label="Echo on the Beach on YouTube Music">
-      <div class="cover"><img src="/assets/covers/one-time-only-320.webp" width="320" height="320" alt="Nights That Never End album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Echo on the Beach</h4>
-      <span class="sub">June 20, 2025 · Nights That Never End <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/hot-sand-cold-drink/ytm/" aria-label="Hot Sand, Cold Drink on YouTube Music">
-      <div class="cover"><img src="/assets/covers/one-time-only-320.webp" width="320" height="320" alt="Nights That Never End album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Hot Sand, Cold Drink</h4>
-      <span class="sub">June 20, 2025 · Nights That Never End <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/t-shirt-weather/ytm/" aria-label="T-Shirt Weather on YouTube Music">
-      <div class="cover"><img src="/assets/covers/one-time-only-320.webp" width="320" height="320" alt="Nights That Never End album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">T-Shirt Weather</h4>
-      <span class="sub">June 20, 2025 · Nights That Never End <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/sunset-radio/ytm/" aria-label="Sunset Radio on YouTube Music">
-      <div class="cover"><img src="/assets/covers/one-time-only-320.webp" width="320" height="320" alt="Nights That Never End album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Sunset Radio</h4>
-      <span class="sub">June 20, 2025 · Nights That Never End <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/songs/wrong-side-of-the-sunset/">
-      <div class="cover"><img src="/assets/covers/one-time-only-320.webp" width="320" height="320" alt="Nights That Never End album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Wrong Side of the Sunset</h4>
-      <span class="sub">June 20, 2025 · Nights That Never End</span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/fruit-juice-moonlight/ytm/" aria-label="Fruit Juice &amp; Moonlight on YouTube Music">
-      <div class="cover"><img src="/assets/covers/one-time-only-320.webp" width="320" height="320" alt="Nights That Never End album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Fruit Juice &amp; Moonlight</h4>
-      <span class="sub">June 20, 2025 · Nights That Never End <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/nights-that-never-end/ytm/" aria-label="Nights That Never End on YouTube Music">
-      <div class="cover"><img src="/assets/covers/one-time-only-320.webp" width="320" height="320" alt="Nights That Never End album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Nights That Never End</h4>
-      <span class="sub">June 20, 2025 · Nights That Never End <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/feel-the-way/ytm/" aria-label="Feel the Way on YouTube Music">
-      <div class="cover"><img src="/assets/covers/feel-the-way-320.webp" width="320" height="320" alt="Feel the Way cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Feel the Way</h4>
-      <span class="sub">June 16, 2025 · Nights That Never End <span class="ext" aria-hidden="true">↗</span></span>
     </a>
     </li>
     <li>
@@ -689,14 +482,6 @@ h2.archive{margin-bottom:10px}
     </a>
     </li>
     <li>
-    <a href="/go/golden-hour-talkin/ytm/" aria-label="Golden Hour Talkin’ on YouTube Music">
-      <div class="cover"><img src="/assets/covers/golden-hour-talkin-320.webp" width="320" height="320" alt="Golden Hour Talkin’ cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Golden Hour Talkin’</h4>
-      <span class="sub">May 25, 2025 · Nights That Never End <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
     <a href="/go/youre-a-slow-burn/ytm/" aria-label="You’re a Slow Burn on YouTube Music">
       <div class="cover"><img src="/assets/covers/youre-a-slow-burn-320.webp" width="320" height="320" alt="You’re a Slow Burn cover" loading="lazy" decoding="async"></div>
       
@@ -712,45 +497,21 @@ h2.archive{margin-bottom:10px}
       <span class="sub">May 18, 2025 <span class="ext" aria-hidden="true">↗</span></span>
     </a>
     </li>
-    <li>
-    <a href="/go/golden-love/ytm/" aria-label="Golden Love on YouTube Music">
-      <div class="cover"><img src="/assets/covers/golden-love-320.webp" width="320" height="320" alt="Golden Love cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Golden Love</h4>
-      <span class="sub">May 16, 2025 · Velvet Hours <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/neon-dreams/ytm/" aria-label="Neon Dreams on YouTube Music">
+    <li class="album">
+    <details>
+    <summary>
       <div class="cover"><img src="/assets/covers/golden-love-320.webp" width="320" height="320" alt="Velvet Hours album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Neon Dreams</h4>
-      <span class="sub">May 16, 2025 · Velvet Hours <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/cool-like-that/ytm/" aria-label="Cool Like That on YouTube Music">
-      <div class="cover"><img src="/assets/covers/golden-love-320.webp" width="320" height="320" alt="Velvet Hours album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Cool Like That</h4>
-      <span class="sub">May 16, 2025 · Velvet Hours <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/same-cup-new-day/ytm/" aria-label="Same Cup, New Day on YouTube Music">
-      <div class="cover"><img src="/assets/covers/golden-love-320.webp" width="320" height="320" alt="Velvet Hours album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Same Cup, New Day</h4>
-      <span class="sub">May 16, 2025 · Velvet Hours <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/slowburn-electric/ytm/" aria-label="Slowburn Electric on YouTube Music">
-      <div class="cover"><img src="/assets/covers/golden-love-320.webp" width="320" height="320" alt="Velvet Hours album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Slowburn Electric</h4>
-      <span class="sub">May 16, 2025 · Velvet Hours <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
+      <h4 class="row">Velvet Hours</h4>
+      <span class="sub">Album · 5 songs · May 16, 2025</span>
+    </summary>
+    <ol class="tracks">
+      <li><a href="/go/golden-love/ytm/">Golden Love <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/neon-dreams/ytm/">Neon Dreams <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/cool-like-that/ytm/">Cool Like That <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/same-cup-new-day/ytm/">Same Cup, New Day <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/slowburn-electric/ytm/">Slowburn Electric <span class="ext" aria-hidden="true">↗</span></a></li>
+    </ol>
+    </details>
     </li>
     <li>
     <a href="/songs/stuck-on-you/">
@@ -792,37 +553,20 @@ h2.archive{margin-bottom:10px}
       <span class="sub">April 16, 2025 <span class="ext" aria-hidden="true">↗</span></span>
     </a>
     </li>
-    <li>
-    <a href="/go/renewal/ytm/" aria-label="Renewal on YouTube Music">
-      <div class="cover"><img src="/assets/covers/renewal-320.webp" width="320" height="320" alt="Renewal cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Renewal</h4>
-      <span class="sub">April 10, 2025 · Rise Again <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/rise-again/ytm/" aria-label="Rise Again on YouTube Music">
+    <li class="album">
+    <details>
+    <summary>
       <div class="cover"><img src="/assets/covers/renewal-320.webp" width="320" height="320" alt="Rise Again album cover" loading="lazy" decoding="async"></div>
-      
       <h4 class="row">Rise Again</h4>
-      <span class="sub">April 10, 2025 · Rise Again <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/awakening/ytm/" aria-label="Awakening on YouTube Music">
-      <div class="cover"><img src="/assets/covers/renewal-320.webp" width="320" height="320" alt="Rise Again album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Awakening</h4>
-      <span class="sub">April 10, 2025 · Rise Again <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/boundless-love/ytm/" aria-label="Boundless Love on YouTube Music">
-      <div class="cover"><img src="/assets/covers/renewal-320.webp" width="320" height="320" alt="Rise Again album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Boundless Love</h4>
-      <span class="sub">April 10, 2025 · Rise Again <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
+      <span class="sub">Album · 4 songs · April 10, 2025</span>
+    </summary>
+    <ol class="tracks">
+      <li><a href="/go/renewal/ytm/">Renewal <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/rise-again/ytm/">Rise Again <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/awakening/ytm/">Awakening <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/boundless-love/ytm/">Boundless Love <span class="ext" aria-hidden="true">↗</span></a></li>
+    </ol>
+    </details>
     </li>
     <li>
     <a href="/go/velvet-lies/ytm/" aria-label="Velvet Lies on YouTube Music">
@@ -920,85 +664,26 @@ h2.archive{margin-bottom:10px}
       <span class="sub">February 1, 2025 <span class="ext" aria-hidden="true">↗</span></span>
     </a>
     </li>
-    <li>
-    <a href="/go/detox/ytm/" aria-label="Detox on YouTube Music">
-      <div class="cover"><img src="/assets/covers/detox-320.webp" width="320" height="320" alt="Detox cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Detox</h4>
-      <span class="sub">January 11, 2025 · Dreams of Forever <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/rise-and-shine/ytm/" aria-label="Rise and shine on YouTube Music">
+    <li class="album">
+    <details>
+    <summary>
       <div class="cover"><img src="/assets/covers/detox-320.webp" width="320" height="320" alt="Dreams of Forever album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Rise and shine</h4>
-      <span class="sub">January 11, 2025 · Dreams of Forever <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/songs/tomorrows-vibe/">
-      <div class="cover"><img src="/assets/covers/detox-320.webp" width="320" height="320" alt="Dreams of Forever album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Tomorrow’s Vibe</h4>
-      <span class="sub">January 11, 2025 · Dreams of Forever</span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/chasing-the-glow/ytm/" aria-label="Chasing the Glow on YouTube Music">
-      <div class="cover"><img src="/assets/covers/detox-320.webp" width="320" height="320" alt="Dreams of Forever album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Chasing the Glow</h4>
-      <span class="sub">January 11, 2025 · Dreams of Forever <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/dreams-of-forever/ytm/" aria-label="Dreams of Forever on YouTube Music">
-      <div class="cover"><img src="/assets/covers/detox-320.webp" width="320" height="320" alt="Dreams of Forever album cover" loading="lazy" decoding="async"></div>
-      
       <h4 class="row">Dreams of Forever</h4>
-      <span class="sub">January 11, 2025 · Dreams of Forever <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/all-in/ytm/" aria-label="All In on YouTube Music">
-      <div class="cover"><img src="/assets/covers/detox-320.webp" width="320" height="320" alt="Dreams of Forever album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">All In</h4>
-      <span class="sub">January 11, 2025 · Dreams of Forever <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/songs/unstoppable-glow/">
-      <div class="cover"><img src="/assets/covers/detox-320.webp" width="320" height="320" alt="Dreams of Forever album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Unstoppable Glow</h4>
-      <span class="sub">January 11, 2025 · Dreams of Forever</span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/you-are-my-magic/ytm/" aria-label="You Are my Magic on YouTube Music">
-      <div class="cover"><img src="/assets/covers/detox-320.webp" width="320" height="320" alt="Dreams of Forever album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">You Are my Magic</h4>
-      <span class="sub">January 11, 2025 · Dreams of Forever <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/unstoppable-flame/ytm/" aria-label="Unstoppable Flame on YouTube Music">
-      <div class="cover"><img src="/assets/covers/detox-320.webp" width="320" height="320" alt="Dreams of Forever album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Unstoppable Flame</h4>
-      <span class="sub">January 11, 2025 · Dreams of Forever <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
-    </li>
-    <li>
-    <a href="/go/hidden-treasure/ytm/" aria-label="Hidden Treasure on YouTube Music">
-      <div class="cover"><img src="/assets/covers/detox-320.webp" width="320" height="320" alt="Dreams of Forever album cover" loading="lazy" decoding="async"></div>
-      
-      <h4 class="row">Hidden Treasure</h4>
-      <span class="sub">January 11, 2025 · Dreams of Forever <span class="ext" aria-hidden="true">↗</span></span>
-    </a>
+      <span class="sub">Album · 10 songs · January 11, 2025</span>
+    </summary>
+    <ol class="tracks">
+      <li><a href="/go/detox/ytm/">Detox <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/rise-and-shine/ytm/">Rise and shine <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/songs/tomorrows-vibe/">Tomorrow’s Vibe</a></li>
+      <li><a href="/go/chasing-the-glow/ytm/">Chasing the Glow <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/dreams-of-forever/ytm/">Dreams of Forever <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/all-in/ytm/">All In <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/songs/unstoppable-glow/">Unstoppable Glow</a></li>
+      <li><a href="/go/you-are-my-magic/ytm/">You Are my Magic <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/unstoppable-flame/ytm/">Unstoppable Flame <span class="ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="/go/hidden-treasure/ytm/">Hidden Treasure <span class="ext" aria-hidden="true">↗</span></a></li>
+    </ol>
+    </details>
     </li>
     <li>
     <a href="/go/glow-up/ytm/" aria-label="Glow Up on YouTube Music">
@@ -1012,10 +697,9 @@ h2.archive{margin-bottom:10px}
 </section>
 
 <section class="yr" id="y2024" data-year="2024" aria-labelledby="h2024">
-  <h3 class="row" id="h2024">2024<small>27 songs</small></h3>
+  <h3 class="row" id="h2024">2024<small>27 singles</small></h3>
   <ul class="wall">
-  
-    <li>
+  <li>
     <a href="/go/all-or-nothing/ytm/" aria-label="All or Nothing on YouTube Music">
       <div class="cover"><img src="/assets/covers/all-or-nothing-320.webp" width="320" height="320" alt="All or Nothing cover" loading="lazy" decoding="async"></div>
       
